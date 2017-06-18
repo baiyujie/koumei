@@ -13,7 +13,7 @@ var extractLayoutSass = new ExtractTextPlugin({
 module.exports = {
     entry: {
         koumei: './index.ts',
-        layout: './components/ms-layout/index.ts'
+        layout: './components/ts-layout/index.ts'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -82,7 +82,7 @@ module.exports = {
                 path.resolve(__dirname, 'components')
             ],
             exclude: [
-                path.resolve(__dirname, 'components/ms-layout')
+                path.resolve(__dirname, 'components/ts-layout')
             ],
             use: extractSass.extract({
                 use: [{
@@ -95,7 +95,7 @@ module.exports = {
             test: /\.scss$/,
             include: [
                 path.resolve(__dirname, 'styles'),
-                path.resolve(__dirname, 'components/ms-layout')
+                path.resolve(__dirname, 'components/ts-layout')
             ],
             use: extractLayoutSass.extract({
                 use: [{

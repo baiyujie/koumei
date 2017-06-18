@@ -79,12 +79,12 @@ module.exports = {
                 RegExp(path.resolve(__dirname, 'components') + '/.*?')
             ],
             use: [
-                { loader: 'koumei-markdown-loader', options: { highlight: false } }
+                { loader: 'koumei-markdown-loader', options: { } }
             ]
         }, {
             test: /\.ts$/,
             include: [
-                RegExp(path.resolve(__dirname, 'components') + '/.*?/demo')
+                RegExp(path.resolve(__dirname, 'components') + '/.*?')
             ],
             use: [
                 { loader: 'ts-loader', options: { appendTsSuffixTo: [/\.md$/] } }

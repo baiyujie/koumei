@@ -1,1 +1,1 @@
-exports.input = require('../components/ms-input/test/ms-input.test.js');
+exports.input = require('../components/ts-input/test/ts-input.test.js');
