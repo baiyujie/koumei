@@ -7,25 +7,25 @@
     <title>koumei 组件文档</title>
 </head>
 <body :controller="root">
-    <xmp is="ts-layout">
-        <ts-layout-header :widget="{fixed:true}">
+    <xmp is="ms-layout">
+        <ms-layout-header :widget="{fixed:true}">
             <h3>koumei 组件文档</h3>
-        </ts-layout-header>
-        <ts-layout-footer :widget="{fixed:true}">
+        </ms-layout-header>
+        <ms-layout-footer :widget="{fixed:true}">
             <div class="text-center" style="line-height: 30px;">
                 <a href="https://github.com/baiyujie/koumei" target="_blank">Github 仓库地址</a>
             </div>
-        </ts-layout-footer>
-        <ts-layout :widget="{style:{backgroundColor:'#ececec'}}">
-            <ts-layout-sider :widget="{fixed:true}">
+        </ms-layout-footer>
+        <ms-layout :widget="{style:{backgroundColor:'#ececec'}}">
+            <ms-layout-sider :widget="{fixed:true}">
                 <wbr is="doc-sidebar"/>
-            </ts-layout-sider>
-            <ts-layout-content>
+            </ms-layout-sider>
+            <ms-layout-content>
                 <div class="koumei-layout-content-wrapper">
-                    <div ts-html="@currentPage"></div>
+                    <div ms-html="@currentPage"></div>
                 </div>
-            </ts-layout-content>
-        </ts-layout>
+            </ms-layout-content>
+        </ms-layout>
     </xmp>
     <script>
         document.body.style.height = document.body.style.minHeight = window.document.documentElement.clientHeight + 'px';

@@ -20,7 +20,7 @@ export function parseSlotToVModel(vmodel, vnodes?: any[]): void {
         let slotName = vnode.dom.getAttribute('slot');
         if (slotName) {
             delete vnode.props[':skip'];
-            delete vnode.props['ts-skip'];
+            delete vnode.props['ms-skip'];
             vmodel[slotName] = avalon.vdom(vnode, 'toHTML');
         } else {
             parseSlotToVModel(vmodel, vnode.children);

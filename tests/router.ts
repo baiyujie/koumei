@@ -33,17 +33,17 @@ function applyRouteConfig(config, parentRoute, accPath = '') {
 }
 
 // const routeConfig = [{
-//     path: '/ts-input',
+//     path: '/ms-input',
 //     component(resolve) {
 //         require.ensure([], function () {
-//             resolve(require('../components/ts-input/demo/input.md'));
+//             resolve(require('../components/ms-input/demo/input.md'));
 //         });
 //     }
 // }, {
-//     path: '/ts-select',
+//     path: '/ms-select',
 //     component(resolve) {
 //         require.ensure([], function () {
-//             resolve(require('../components/ts-select/demo/select.md'));
+//             resolve(require('../components/ms-select/demo/select.md'));
 //         });
 //     }
 // }];

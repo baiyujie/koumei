@@ -22,7 +22,7 @@ if (avalon.msie === 8) {
 }
 require('es5-shim/es5-sham');
 require('./router');
-require('../components/ts-layout');
+require('../components/ms-layout');
 require('./components/doc-sidebar/doc-sidebar');
 
 avalon.define({
