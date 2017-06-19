@@ -32,22 +32,22 @@ function applyRouteConfig(config, parentRoute, accPath = '') {
     });
 }
 
-// const routeConfig = [{
-//     path: '/ms-input',
-//     component(resolve) {
-//         require.ensure([], function () {
-//             resolve(require('../components/ms-input/demo/input.md'));
-//         });
-//     }
-// }, {
-//     path: '/ms-select',
-//     component(resolve) {
-//         require.ensure([], function () {
-//             resolve(require('../components/ms-select/demo/select.md'));
-//         });
-//     }
-// }];
+const routeConfig = [{
+    path: '/ms-input',
+    component(resolve) {
+        require.ensure([], function () {
+            resolve(require('../components/ms-input/ms-input.md'));
+        });
+    }
+}, {
+    path: '/ms-select',
+    component(resolve) {
+        require.ensure([], function () {
+            resolve(require('../components/ms-select/ms-select.md'));
+        });
+    }
+}];
 
-// applyRouteConfig(routeConfig, {
-//     name: 'root'
-// });
+applyRouteConfig(routeConfig, {
+    name: 'root'
+});

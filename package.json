@@ -10,10 +10,11 @@
     "dist/layout.css"
   ],
   "scripts": {
-    "start": "webpack --config webpack.test.config.js",
+    "build": "webpack --config webpack.test.config.js",
     "dev": "webpack-dev-server --config webpack.test.config.js",
     "doc": "webpack-dev-server --config webpack.doc.config.js",
-    "ci:doc": "webpack --config webpack.doc.config.js --output-path='./output'",
+    "win:doc": "webpack --config webpack.doc.config.js --output-path=dist/docs/output",
+    "mac:doc": "webpack --config webpack.doc.config.js --output-path='./output'",
     "test": "npm-run-all -p -r ",
     "server": "http-server dist -s -p 9000",
     "nightwatch": "nightwatch ./tests/nightwatch.js",
@@ -31,7 +32,7 @@
     "koumei-fileup-loader": "1.0.0"
   },
   "devDependencies": {
-    "koumei-markdown-loader": "^1.0.0",
+    "koumei-markdown-loader": "^1.2.1",
     "bootstrap": "^3.2.0",
     "css-loader": "^0.28.4",
     "es5-shim": "^4.5.9",

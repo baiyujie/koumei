@@ -75,16 +75,16 @@ module.exports = {
             }
         }, {
             test: /\.md$/,
-            include: [
-                RegExp(path.resolve(__dirname, 'components') + '/.*?')
-            ],
+            // include: [
+            //     RegExp(path.resolve(__dirname, 'components') + '/.*?/')
+            // ],
             use: [
-                { loader: 'koumei-markdown-loader', options: { } }
+                { loader: 'koumei-markdown-loader', options: { highlight: false }}
             ]
         }, {
             test: /\.ts$/,
             include: [
-                RegExp(path.resolve(__dirname, 'components') + '/.*?')
+                RegExp(path.resolve(__dirname, 'components') + '/.*?/')
             ],
             use: [
                 { loader: 'ts-loader', options: { appendTsSuffixTo: [/\.md$/] } }
@@ -120,12 +120,12 @@ module.exports = {
         port: 9000,
         watchOptions: {
             ignored: /node_modules/
-        },
-        proxy: {
-            '/api': {
-                target: 'https://www.easy-mock.com/mock/58ff1b7c5e43ae5dbea5eff3',
-                secure: false
-            }
+        // },
+        // proxy: {
+        //     '/api': {
+        //         target: 'https://www.easy-mock.com/mock/58ff1b7c5e43ae5dbea5eff3',
+        //         secure: false
+        //     }
         }
     },
     devtool: 'inline-source-map'
