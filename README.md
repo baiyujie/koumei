@@ -22,7 +22,7 @@ console.log(avalon.components);
 
 ## 组件文档及示例
 
-https://baiyujie.github.io/koumei
+https://baiyujie.github.io/koumei-docs
 
 ## 浏览器支持
 
