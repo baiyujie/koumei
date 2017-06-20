@@ -1,6 +1,6 @@
 {
   "name": "koumei",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "avalonjs components package",
   "main": "dist/koumei.js",
   "files": [

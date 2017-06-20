@@ -79,7 +79,7 @@ module.exports = {
             //     RegExp(path.resolve(__dirname, 'components') + '/.*?/')
             // ],
             use: [
-                { loader: 'koumei-markdown-loader', options: { highlight: false }}
+                { loader: 'koumei-markdown-loader', options: { highlight: true }}
             ]
         }, {
             test: /\.ts$/,
