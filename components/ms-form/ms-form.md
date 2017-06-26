@@ -6,10 +6,10 @@
 <div :controller="doc-form-validate">
     <xmp is="ms-form" :widget="{$form:@$form}">
         <ms-form-item :widget="{label:'标题'}">
-            <ms-input :widget="{col:'title',$rules:{required:true}}"></ms-input>
+            <ms-input :widget="{col:'title',$rules:{required:true,message:'请输入标题'}}"></ms-input>
         </ms-form-item>
         <ms-form-item :widget="{label:'内容'}">
-            <ms-textarea :widget="{col:'content',$rules:{required:true}}"></ms-textarea>
+            <ms-textarea :widget="{col:'content',$rules:{required:true,message:'请输入内容'}}"></ms-textarea>
         </ms-form-item>
         <button type="button" class="btn btn-primary btn-sm" :click="@save">保存</button>
     </xmp>

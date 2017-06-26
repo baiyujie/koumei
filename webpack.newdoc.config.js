@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-var extractSass = new ExtractTextPlugin({
+var extractLess = new ExtractTextPlugin({
     filename: "bundle[chunkHash].css",
     disable: false,
     allChunks: true
@@ -92,7 +92,7 @@ module.exports = {
         }
     },
     plugins: [
-        extractSass,
+        extractLess,
         extractCss,
         new HtmlWebpackPlugin({
             template: 'newdocs/index.html'

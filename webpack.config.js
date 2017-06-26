@@ -1,7 +1,7 @@
 var path = require('path');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-var extractSass = new ExtractTextPlugin({
+var extractLess = new ExtractTextPlugin({
     filename: "koumei.css",
     disable: false
 });
@@ -117,7 +117,7 @@ module.exports = {
         extensions: ['.js', '.ts', '.less']
     },
     plugins: [
-        extractSass,
+        extractLess,
         extractLayoutSass
     ]
 };
