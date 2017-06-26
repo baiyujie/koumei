@@ -3,11 +3,11 @@
 
 @layout-sider-bg: #fff;
 @layout-sider-width: 224px;
-@layout-header-bg: aquamarine;
-@layout-header-height: 60px;
-@layout-footer-bg: aquamarine;
-@layout-footer-height: 30px;
-@layout-content-bg: #ececec;
+@layout-header-bg: #2f90ea;
+@layout-header-height: 65px;
+@layout-footer-bg: #fff;
+@layout-footer-height: 55px;
+@layout-content-bg: #f2f4f6;
 
 xmp {
     display: none;
@@ -37,8 +37,9 @@ body {
         float: left;
         width: @layout-sider-width;
         height: 100%;
-        top: 0;
-        bottom: 0;
+        top: 20px;
+        bottom: 20px;
+        left: 20px;
         background: @layout-sider-bg;
 
         &:after {
@@ -62,7 +63,15 @@ body {
     &-header {
         height: @layout-header-height;
         background: @layout-header-bg;
+        padding: 15px;
     }
+
+    &-header .logo-text{
+        font-size: 24px;
+        font-family: "Microsoft YaHei";
+        color: #fff;
+    }
+
     &-fixed-header {
         position: fixed;
         width: 100%;
@@ -70,6 +79,7 @@ body {
     }
     &-fixed-header ~ & > &-fixed-sider,
     &-fixed-header ~ &-fixed-sider {
+        height: 1000px;
         border-bottom-width: 0;
     }
     &-fixed-header ~ & > &-sider,
@@ -88,7 +98,6 @@ body {
     &-content {
         margin-left: @layout-sider-width;
         background-color: inherit;
-
         &:before {
             content: "";
             display: block;
@@ -103,8 +112,9 @@ body {
         &-wrapper {
             margin: 0 16px;
             background: #fff;
-            margin-bottom: 16px;
-            padding: 24px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
         }
     }
 
@@ -113,6 +123,12 @@ body {
         height: @layout-footer-height;
         background: @layout-footer-bg;
         bottom: 0;
+        padding: 15px;
+        & a{
+            font-size: 12px;
+            font-family: "Microsoft YaHei";
+            color: #000;
+        }
     }
     &-fixed-footer {
         position: fixed;
