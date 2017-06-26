@@ -1,6 +1,6 @@
 {
   "name": "koumei",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "avalonjs components package",
   "main": "dist/koumei.js",
   "files": [
@@ -13,6 +13,7 @@
     "build": "webpack --config webpack.test.config.js",
     "dev": "webpack-dev-server --config webpack.test.config.js",
     "doc": "webpack-dev-server --config webpack.doc.config.js",
+    "newdoc": "webpack-dev-server --config webpack.newdoc.config.js",
     "win:doc": "webpack --config webpack.doc.config.js --output-path=dist/docs/output",
     "mac:doc": "webpack --config webpack.doc.config.js --output-path='./output'",
     "test": "npm-run-all -p -r ",
@@ -21,8 +22,10 @@
     "pub": "webpack",
     "version": "npm run pub"
   },
+  "peerDependencies": {
+    "avalon2": "^2.2.7"
+  },
   "dependencies": {
-    "avalon2": "^2.2.7",
     "jquery": "^1.12.4",
     "async-validator": "^1.6.8",
     "bootbox": "^4.4.0",
@@ -32,7 +35,8 @@
     "koumei-fileup-loader": "1.0.2"
   },
   "devDependencies": {
-    "koumei-markdown-loader": "^1.2.1",
+    "avalon2": "^2.2.7",
+    "koumei-markdown-loader": "^1.2.2",
     "bootstrap": "^3.2.0",
     "css-loader": "^0.28.4",
     "es5-shim": "^4.5.9",
@@ -43,11 +47,12 @@
     "highlight.js": "^9.12.0",
     "html-webpack-plugin": "^2.28.0",
     "http-server": "^0.10.0",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.4",
     "mmRouter": "^0.9.6",
     "node-sass": "^4.5.3",
     "npm-run-all": "^4.0.2",
     "raw-loader": "^0.5.1",
-    "sass-loader": "^6.0.5",
     "style-loader": "^0.18.2",
     "ts-loader": "^2.1.0",
     "typescript": "^2.3.4",

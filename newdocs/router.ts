@@ -1,5 +1,7 @@
 import * as avalon from 'avalon2';
 import 'mmRouter';
+import { menu as menuStore } from './stores';
+import * as navConfig from './nav.config.js';
 
 function getPage(component) {
     const html = `<xmp is="${component}" :widget="{id:'${component.replace(/\-/g, '_')}'}"></xmp>`;
@@ -20,6 +22,7 @@ function applyRouteConfig(config, parentRoute, accPath = '') {
                 let component = components[viewName];
                 if (typeof component === 'function') {
                     component(function (m) {
+                        menuStore.selectedKeys$.onNext([m.name]);
                         avalon.vmodels[parentRoute.name][viewName] = getPage(m.name);
                     });
                 } else {
@@ -32,21 +35,22 @@ function applyRouteConfig(config, parentRoute, accPath = '') {
     });
 }
 
-const routeConfig = [{
-    path: '/ms-input',
-    component(resolve) {
-        require.ensure([], function () {
-            resolve(require('../components/ms-input/test/ms-input.test.ts'));
+const routeConfig = [];
+const travel = item => {
+    if (!item.children || item.children.length === 0) {
+        routeConfig.push({
+            path: item.uri,
+            component(resolve) {
+                require.ensure([], function () {
+                    resolve(require('../components/' + item.location));
+                });
+            }
         });
+    } else {
+        item.children.map(travel);
     }
-}, {
-    path: '/ms-select',
-    component(resolve) {
-        require.ensure([], function () {
-            resolve(require('../components/ms-select/ms-select.md'));
-        });
-    }
-}];
+};
+navConfig.map(travel);
 
 applyRouteConfig(routeConfig, {
     name: 'root'

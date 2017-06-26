@@ -32,18 +32,19 @@ module.exports = {
                 path.resolve(__dirname, 'components'),
                 path.resolve(__dirname, 'docs')
             ],
-            loader: 'ts-loader'
+            loader: 'ts-loader',
+            options: { appendTsSuffixTo: [/\.md$/] }
         }, {
-            test: /\.scss$/,
+            test: /\.less$/,
             include: [
                 path.resolve(__dirname, 'styles'),
                 path.resolve(__dirname, 'components')
             ],
-            use: extractSass.extract({
+            use: extractLess.extract({
                 use: [{
                     loader: 'css-loader'
                 }, {
-                    loader: 'sass-loader'
+                    loader: 'less-loader'
                 }]
             })
         }, {
@@ -75,25 +76,17 @@ module.exports = {
             }
         }, {
             test: /\.md$/,
-            // include: [
-            //     RegExp(path.resolve(__dirname, 'components') + '/.*?/')
-            // ],
-            use: [
-                { loader: 'koumei-markdown-loader', options: { highlight: true }}
-            ]
-        }, {
-            test: /\.ts$/,
             include: [
-                RegExp(path.resolve(__dirname, 'components') + '/.*?/')
+                path.resolve(__dirname, 'components'),
             ],
             use: [
-                { loader: 'ts-loader', options: { appendTsSuffixTo: [/\.md$/] } }
+                { loader: 'koumei-markdown-loader', options: { highlight: false } }
             ]
         }]
     },
     resolve: {
         mainFields: ['browser', 'main'],
-        extensions: ['.js', '.ts', '.scss', '.md'],
+        extensions: ['.js', '.ts', '.less', '.md'],
         alias: {
             koumei: path.resolve(__dirname, "index.ts")
         }

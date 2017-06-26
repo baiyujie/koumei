@@ -15,7 +15,7 @@ var extractCss = new ExtractTextPlugin({
 
 module.exports = {
     entry: {
-        app: './tests/index.js'
+        app: './newdocs/index.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -30,7 +30,7 @@ module.exports = {
                 path.resolve(__dirname, 'index.ts'),
                 path.resolve(__dirname, 'koumei-util.ts'),
                 path.resolve(__dirname, 'components'),
-                path.resolve(__dirname, 'tests')
+                path.resolve(__dirname, 'newdocs')
             ],
             loader: 'ts-loader',
             options: { appendTsSuffixTo: [/\.md$/] }
@@ -60,7 +60,8 @@ module.exports = {
         }, {
             test: /\.html$/,
             include: [
-                path.resolve(__dirname, 'components')
+                path.resolve(__dirname, 'components'),
+                path.resolve(__dirname, 'newdocs/components')
             ],
             loader: 'raw-loader'
         }, {
@@ -94,7 +95,7 @@ module.exports = {
         extractSass,
         extractCss,
         new HtmlWebpackPlugin({
-            template: 'tests/index.html'
+            template: 'newdocs/index.html'
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
@@ -112,6 +113,12 @@ module.exports = {
         port: 9000,
         watchOptions: {
             ignored: /node_modules/
+        // },
+        // proxy: {
+        //     '/api': {
+        //         target: 'https://www.easy-mock.com/mock/58ff1b7c5e43ae5dbea5eff3',
+        //         secure: false
+        //     }
         }
     },
     devtool: 'inline-source-map'
