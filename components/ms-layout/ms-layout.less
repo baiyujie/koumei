@@ -13,8 +13,7 @@ xmp {
     display: none;
 }
 body {
-    background-color: @layout-sider-bg;
-
+    background-color: @layout-content-bg;
     &:before {
         content: "";
         display: block;
@@ -75,11 +74,11 @@ body {
     &-fixed-header {
         position: fixed;
         width: 100%;
-        z-index: 200;
+        z-index: 900;
     }
     &-fixed-header ~ & > &-fixed-sider,
     &-fixed-header ~ &-fixed-sider {
-        height: 1000px;
+        // height: 100%;
         border-bottom-width: 0;
     }
     &-fixed-header ~ & > &-sider,
@@ -110,10 +109,11 @@ body {
         }
 
         &-wrapper {
-            margin: 0 16px;
+            margin: 0 26px;
             background: #fff;
             margin-top: 20px;
             margin-bottom: 20px;
+            margin-right: 20px;
             padding: 20px;
         }
     }

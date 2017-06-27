@@ -15,6 +15,7 @@
     "doc": "webpack-dev-server --config webpack.doc.config.js",
     "newdoc": "webpack-dev-server --config webpack.newdoc.config.js",
     "win:doc": "webpack --config webpack.doc.config.js --output-path=dist/docs/output",
+    "win:newdoc": "webpack --config webpack.newdoc.config.js --output-path=dist/docs/output",
     "mac:doc": "webpack --config webpack.doc.config.js --output-path='./output'",
     "test": "npm-run-all -p -r ",
     "server": "http-server dist -s -p 9000",
