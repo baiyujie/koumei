@@ -24,6 +24,9 @@ console.log(avalon.components);
 
 https://baiyujie.github.io/koumei-docs
 
+## 开发说明
+https://github.com/baiyujie/koumei/wiki
+
 ## 浏览器支持
 
 现代浏览器、IE8 及以上
