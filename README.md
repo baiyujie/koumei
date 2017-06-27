@@ -1,4 +1,4 @@
-<h1 align="center">:cyclone:koumei:cyclone:</h1>
+<h1 align="center">:coffee:koumei:coffee:</h1>
 
 <div align="center">
   <strong>基于 <a href="https://github.com/RubyLouvre/avalon">Avalon2</a> 的 组件库 beta</strong>
@@ -22,7 +22,12 @@ console.log(avalon.components);
 
 ## 组件文档及示例
 
-https://baiyujie.github.io/koumei-docs
+[Koumei API](https://baiyujie.github.io/koumei-docs)
+
+## Wiki百科
+[开始!](https://github.com/baiyujie/koumei/wiki/%E5%BC%80%E5%A7%8B%EF%BC%81)
+
+[怎么搞组件开发!](https://github.com/baiyujie/koumei/wiki/%E6%80%8E%E4%B9%88%E6%90%9E%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%EF%BC%9F)
 
 ## 浏览器支持
 
