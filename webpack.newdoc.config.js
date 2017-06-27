@@ -15,7 +15,7 @@ var extractCss = new ExtractTextPlugin({
 
 module.exports = {
     entry: {
-        app: './docs/index.js'
+        app: './newdocs/index.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -30,7 +30,7 @@ module.exports = {
                 path.resolve(__dirname, 'index.ts'),
                 path.resolve(__dirname, 'koumei-util.ts'),
                 path.resolve(__dirname, 'components'),
-                path.resolve(__dirname, 'docs')
+                path.resolve(__dirname, 'newdocs')
             ],
             loader: 'ts-loader',
             options: { appendTsSuffixTo: [/\.md$/] }
@@ -61,7 +61,7 @@ module.exports = {
             test: /\.html$/,
             include: [
                 path.resolve(__dirname, 'components'),
-                path.resolve(__dirname, 'docs/components')
+                path.resolve(__dirname, 'newdocs/components')
             ],
             loader: 'raw-loader'
         }, {
@@ -95,7 +95,7 @@ module.exports = {
         extractLess,
         extractCss,
         new HtmlWebpackPlugin({
-            template: 'docs/index.html'
+            template: 'newdocs/index.html'
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',

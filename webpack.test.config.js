@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-var extractSass = new ExtractTextPlugin({
+var extractLess = new ExtractTextPlugin({
     filename: "bundle[chunkHash].css",
     disable: false,
     allChunks: true
@@ -32,18 +32,19 @@ module.exports = {
                 path.resolve(__dirname, 'components'),
                 path.resolve(__dirname, 'tests')
             ],
-            loader: 'ts-loader'
+            loader: 'ts-loader',
+            options: { appendTsSuffixTo: [/\.md$/] }
         }, {
-            test: /\.scss$/,
+            test: /\.less$/,
             include: [
                 path.resolve(__dirname, 'styles'),
                 path.resolve(__dirname, 'components')
             ],
-            use: extractSass.extract({
+            use: extractLess.extract({
                 use: [{
                     loader: 'css-loader'
                 }, {
-                    loader: 'sass-loader'
+                    loader: 'less-loader'
                 }]
             })
         }, {
@@ -74,31 +75,23 @@ module.exports = {
             }
         }, {
             test: /\.md$/,
-            // include: [
-            //     RegExp(path.resolve(__dirname, 'components') + '/**/')
-            // ],
-            use: [
-                { loader: 'koumei-markdown-loader', options: { highlight: false } }
-            ]
-        }, {
-            test: /\.ts$/,
             include: [
-                RegExp(path.resolve(__dirname, 'components') + '/.*/')
+                path.resolve(__dirname, 'components'),
             ],
             use: [
-                { loader: 'ts-loader', options: { appendTsSuffixTo: [/\.md$/] } }
+                { loader: 'koumei-markdown-loader', options: { highlight: false } }
             ]
         }]
     },
     resolve: {
         mainFields: ['browser', 'main'],
-        extensions: ['.js', '.ts', '.scss', '.md'],
+        extensions: ['.js', '.ts', '.less', '.md'],
         alias: {
             koumei: path.resolve(__dirname, "index.ts")
         }
     },
     plugins: [
-        extractSass,
+        extractLess,
         extractCss,
         new HtmlWebpackPlugin({
             template: 'tests/index.html'

@@ -5,7 +5,7 @@
 ```html
 <div>
     <ms-datepicker :widget="{
-        placeholder:'请选择入学时间'
+        placeholder:'请选择时间'
     }"></ms-datepicker>
 </div>
 ```
@@ -15,7 +15,7 @@
 ```html
 <div>
     <ms-datepicker :widget="{
-        placeholder:'请选择入学时间',
+        placeholder:'请选择时间',
         format:'YYYY/MM/DD'
     }"></ms-datepicker>
 </div>
@@ -26,7 +26,7 @@
 ```html
 <div>
     <ms-datepicker :widget="{
-        placeholder:'请选择入学时间',
+        placeholder:'请选择时间',
         startDate:'2017/5/26',
         endDate:'2018/7/26'
     }"></ms-datepicker>

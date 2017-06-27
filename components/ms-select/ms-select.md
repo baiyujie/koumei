@@ -6,12 +6,12 @@
 <div :controller="doc-select-basic">
     <xmp is="ms-form" :widget="{$form: @$form}">
         <ms-form-item>
-            <ms-select :widget="{col:'comic'}">
-                <ms-select-option :widget="{value:'onepiece'}">海贼王</ms-select-option>
-                <ms-select-option :widget="{value:'conna'}">名侦探柯南</ms-select-option>
-                <ms-select-option :widget="{value:'titan'}">进击的巨人</ms-select-option>
+            <ms-select :widget="{col:'attribute'}">
+                <ms-select-option :widget="{value:'koumei'}">koumei</ms-select-option>
+                <ms-select-option :widget="{value:'koumei-doc'}">koumei-doc</ms-select-option>
+                <ms-select-option :widget="{value:'koumei-markdown'}">koumei-markdown</ms-select-option>
                 <ms-select-option :widget="{value:'disabled', disabled:true}">禁用</ms-select-option>
-                <ms-select-option :widget="{value:'onepunchman'}">一拳超人</ms-select-option>
+                <ms-select-option :widget="{value:'pop-ts'}">pop-ts</ms-select-option>
             </ms-select>
         </ms-form-item>
     </xmp>
@@ -38,12 +38,12 @@ const vm = avalon.define({
 
 ``` html
 <div :controller="doc-select-multiple">
-    <ms-select :widget="{col:'comic',mode:'multiple'}">
-        <ms-select-option :widget="{value:'onepiece'}">海贼王</ms-select-option>
-        <ms-select-option :widget="{value:'conna'}">名侦探柯南</ms-select-option>
-        <ms-select-option :widget="{value:'titan'}">进击的巨人</ms-select-option>
+    <ms-select :widget="{col:'attribute',mode:'multiple'}">
+        <ms-select-option :widget="{value:'koumei'}">koumei</ms-select-option>
+        <ms-select-option :widget="{value:'koumei-doc'}">koumei-doc</ms-select-option>
+        <ms-select-option :widget="{value:'koumei-markdown'}">koumei-markdown</ms-select-option>
         <ms-select-option :widget="{value:'disabled', disabled:true}">禁用</ms-select-option>
-        <ms-select-option :widget="{value:'onepunchman'}">一拳超人</ms-select-option>
+        <ms-select-option :widget="{value:'pop-ts'}">pop-ts</ms-select-option>
     </ms-select>
 </div>
 ```
@@ -61,12 +61,12 @@ avalon.define({
 
 ``` html
 <div :controller="doc-select-multiple">
-    <ms-select :widget="{col:'comic',showSearch:true}">
-        <ms-select-option :widget="{value:'onepiece'}">海贼王</ms-select-option>
-        <ms-select-option :widget="{value:'conna'}">名侦探柯南</ms-select-option>
-        <ms-select-option :widget="{value:'titan'}">进击的巨人</ms-select-option>
+    <ms-select :widget="{col:'attribute',showSearch:true}">
+        <ms-select-option :widget="{value:'koumei'}">koumei</ms-select-option>
+        <ms-select-option :widget="{value:'koumei-doc'}">koumei-doc</ms-select-option>
+        <ms-select-option :widget="{value:'koumei-markdown'}">koumei-markdown</ms-select-option>
         <ms-select-option :widget="{value:'disabled', disabled:true}">禁用</ms-select-option>
-        <ms-select-option :widget="{value:'onepunchman'}">一拳超人</ms-select-option>
+        <ms-select-option :widget="{value:'pop-ts'}">pop-ts</ms-select-option>
     </ms-select>
 </div>
 ```
@@ -111,7 +111,7 @@ avalon.define({
 | 参数 | 说明 | 类型 | 默认值 |
 |-----|-----|-----|-----|
 | value | 默认值 | string\[\] | \[\] |
-| mode | 模式 | 'combobox' \| 'multiple' \| 'tags' | '' |
+| mode | 模式 | 'combobox' \| 'multiple' \| 'tags' | '' |
 | options | 下拉选项，可以替代ms-select-option | {label:string,value:string,disabled:boolean}\[\] | \[\] |
 | showSearch | 是否显示搜索框 | boolean | false |
 | remote | 是否为远程搜索 | boolean | false |

@@ -25,7 +25,7 @@ layoutComponent.extend({
     soleSlot: 'slot',
     defaults: {
         fixed: false,
-        width: '60px'
+        width: '65px'
     }
 });
 
@@ -44,6 +44,6 @@ layoutComponent.extend({
     soleSlot: 'slot',
     defaults: {
         fixed: false,
-        width: '60px'
+        width: '55px'
     }
 });
