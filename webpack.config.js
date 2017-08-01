@@ -1,11 +1,12 @@
 var path = require('path');
+var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var extractLess = new ExtractTextPlugin({
     filename: "koumei.css",
     disable: false
 });
-var extractLayoutSass = new ExtractTextPlugin({
+var extractLayoutLess = new ExtractTextPlugin({
     filename: "layout.css",
     disable: false
 });
@@ -29,7 +30,7 @@ module.exports = {
             amd: 'avalon2'
         },
         jquery: {
-            root: '$',
+            root: 'jQuery',
             commonjs: 'jquery',
             commonjs2: 'jquery',
             amd: 'jquery'
@@ -105,11 +106,44 @@ module.exports = {
                 }]
             })
         }, {
+            test: /\.css$/,
+            include: [
+                path.resolve(__dirname, 'components'),
+                path.resolve(__dirname, 'node_modules')
+            ],
+            use: extractLess.extract({
+                use: [{
+                    loader: 'css-loader'
+                }]
+            })
+        }, {
             test: /\.html$/,
             include: [
                 path.resolve(__dirname, 'components')
             ],
-            loader: 'raw-loader'
+            use: [
+                {
+                    loader: 'raw-loader'
+                }, {
+                    loader: 'string-replace-loader',
+                    query: {
+                        multiple: [
+                            { search: '\r', replace: '', flags: 'g' }
+                        ]
+                    }
+                }
+            ]
+        }, {
+            test: /\.(eot|otf|ttf|woff|woff2|svg|png|gif)\w*/,
+            include: [
+                path.resolve(__dirname, 'components'),
+                path.resolve(__dirname, 'node_modules')
+            ],
+            loader: 'file-loader',
+            query: {
+                limit: 1,
+                name: '[name].[ext]'
+            }
         }]
     },
     resolve: {
@@ -118,6 +152,10 @@ module.exports = {
     },
     plugins: [
         extractLess,
-        extractLayoutSass
+        extractLayoutLess,
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+        })
     ]
 };

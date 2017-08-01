@@ -1,7 +1,1 @@
-<ul class="koumei-tree">
-    <li :for="(index, el) in @tree | get(0)">
-        <span class="koumei-tree-icon fa" :class="[@changeIcon(el)]" :click="@openSubTree(el)"></span>
-        {{el.text}}
-        <div :visible="el.open" :html="@renderSubTree(el)"></div>
-    </li>
-</ul>
+<ul class="ztree"></ul> 

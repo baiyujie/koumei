@@ -1,0 +1,38 @@
+<div class="koumei-tree-select form-control"
+    :class="[(@multiple ? 'koumei-tree-select-multiple' : '')]"
+    :css="{width:@width}"
+    :click="@handleClick"
+    role="combobox"
+    aria-autocomplete="list"
+    aria-haspopup="true"
+    :attr="{'aria-expanded': @panelVisible + ''}">
+    <ul class="koumei-tree-select-selection" :class="[(@multiple ? 'koumei-tree-select-tags' : '')]">
+        <li class="koumei-tree-select-selected" :visible="!@multiple && (!@showSearch || !@panelVisible)">{{@displayValue}}</li>
+        <li class="koumei-tree-select-choice" :for="choice in @selection">
+            <span>{{choice.title}}</span>
+            <i class="fa fa-times" :click="@removeSelection($event, choice) | stop"></i>
+        </li>
+        <li class="koumei-tree-select-search">
+            <input class="koumei-tree-select-search-field"
+                name="search"
+                type="text"
+                autocomplete="off"
+                :duplex="@searchValue"
+                :css="{visibility:(@showSearch && @panelVisible)?'visible':'hidden'}"
+                :keydown="@handleDelete" />
+        </li>
+    </ul>
+    <i class="fa koumei-tree-select-arrow"
+        :class="[(@panelVisible ? 'fa-caret-up' : 'fa-caret-down')]"
+        :visible="!@multiple"></i>
+    <ms-trigger :widget="{
+        width: @panelWidth,
+        visible: @panelVisible,
+        innerVmId: @panelVmId,
+        innerClass: @panelClass,
+        innerTemplate: @panelTemplate,
+        withInBox: @withInBox,
+        getTarget: @getTarget,
+        onHide: @handlePanelHide}">
+    </ms-trigger>
+</div>

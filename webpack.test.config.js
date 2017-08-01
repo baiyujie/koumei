@@ -50,6 +50,7 @@ module.exports = {
         }, {
             test: /\.css$/,
             include: [
+                path.resolve(__dirname, 'components'),
                 path.resolve(__dirname, 'node_modules')
             ],
             use: extractCss.extract({
@@ -62,10 +63,23 @@ module.exports = {
             include: [
                 path.resolve(__dirname, 'components')
             ],
-            loader: 'raw-loader'
+            use: [
+                {
+                    loader: 'raw-loader'
+                },
+                {
+                    loader: 'string-replace-loader',
+                    query: {
+                        multiple: [
+                            { search: '\r', replace: '', flags: 'g' }
+                        ]
+                    }
+                }
+            ]
         }, {
-            test: /\.(eot|otf|ttf|woff|woff2|svg)\w*/,
+            test: /\.(eot|otf|ttf|woff|woff2|svg|png|gif)\w*/,
             include: [
+                path.resolve(__dirname, 'components'),
                 path.resolve(__dirname, 'node_modules')
             ],
             loader: 'file-loader',

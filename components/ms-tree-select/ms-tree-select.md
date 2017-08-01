@@ -1,10 +1,10 @@
-## 树组件
+## 树选择组件
 
 ### 基本用法
 
 ```html
 <div :controller="tree">
-    <ms-tree :widget="{checkable: true,tree: @data, checkedKeys: @checkedKeys, onCheck:@handleCheck}"></ms-tree>
+    <ms-tree-select :widget="{treeData: @data,multiple:true}"></ms-tree>
 </div>
 ```
 
@@ -38,11 +38,7 @@ avalon.define({
                 {key: 13, title: 1234, children: []}
             ]},
         {key: 6, title: "fff", children: []}
-    ],
-    checkedKeys: [10, 11, 12],
-    handleCheck(checkedKeys) {
-        console.log(checkedKeys);
-    }
+    ]
 })
 ```
 
@@ -50,13 +46,12 @@ avalon.define({
 
 | 参数 | 说明 | 类型 | 默认值 |
 |-----|-----|-----|-----|
-| checkable | 是否现实复选框 | boolean | false |
-| tree | 树数据 | TreeNode\[\] | \[\] |
-| expandedKeys | 展开的父节点的 key 集合 | string\[\] | \[\] |
-| checkedKeys | 勾选的节点的 key 集合 | string\[\] | \[\] |
-| onCheck | 勾选节点的回调 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event}) | noop |
-| onCheck | 选择节点的回调 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | noop |
+| value | 默认值 | string\[\] | \[\] |
+| multiple | 是否多选 | boolean | false |
+| treeData | 树数据 | TreeNode\[\] | \[\] |
+| showSearch | 是否显示搜索框 | boolean | false |
 
+> 继承 [ms-control 组件](#!/form-control) 的所有参数
 
 TreeNode
 
