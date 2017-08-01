@@ -93,6 +93,8 @@ var config = {
         }, {
             test: /\.md$/,
             include: [
+                path.resolve(__dirname, 'README.md'),
+                path.resolve(__dirname, 'CHANGELOG.md'),
                 path.resolve(__dirname, 'components'),
             ],
             use: [
