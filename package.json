@@ -20,10 +20,10 @@
     "version": "npm run pub"
   },
   "peerDependencies": {
-    "avalon2": "^2.2.7",
-    "jquery": "^1.12.4"
+    "avalon2": "^2.2.7"
   },
   "dependencies": {
+    "jquery": "^1.12.4",
     "async-validator": "^1.6.8",
     "bootbox": "^4.4.0",
     "dom-align": "^1.5.3",
