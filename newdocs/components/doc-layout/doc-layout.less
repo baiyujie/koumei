@@ -1,0 +1,145 @@
+@import '../../styles/index';
+@layout-prefix-cls: ~"@{koumei-prefix}-doc-layout";
+
+@layout-sider-bg: #fff;
+@layout-sider-width: 224px;
+@layout-header-bg: #2f90ea;
+@layout-header-height: 65px;
+@layout-footer-bg: #fff;
+@layout-footer-height: 55px;
+@layout-content-bg: #f2f4f6;
+
+xmp {
+    display: none;
+}
+body {
+    background-color: @layout-content-bg;
+    &:before {
+        content: "";
+        display: block;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: @layout-sider-width;
+        right: 0;
+        z-index: -1;
+        background-color: @layout-content-bg;
+    }
+}
+
+.@{layout-prefix-cls} {
+    height: 100%;
+    background: @layout-content-bg;
+    position: relative;
+
+    &-sider {
+        float: left;
+        width: @layout-sider-width;
+        height: 100%;
+        top: 20px;
+        bottom: 20px;
+        left: 20px;
+        background: @layout-sider-bg;
+
+        &:after {
+            content: "";
+            display: block;
+            height: 60px;
+        }
+    }
+    &-fixed-sider {
+        height: auto;
+        position: fixed;
+        border-bottom: solid @layout-footer-height @layout-sider-bg;
+    }
+    &-fixed-sider &-sider-inner {
+        height: 100%;
+        overflow: auto;
+        border-bottom: solid 0 @layout-sider-bg;
+        margin-top: @layout-header-height;
+    }
+    
+    &-header {
+        height: @layout-header-height;
+        background: @layout-header-bg;
+        padding: 15px;
+    }
+
+    &-header .logo-text{
+        font-size: 24px;
+        font-family: "Microsoft YaHei";
+        color: #fff;
+    }
+
+    &-fixed-header {
+        position: fixed;
+        width: 100%;
+        z-index: 900;
+    }
+    &-fixed-header ~ & > &-fixed-sider,
+    &-fixed-header ~ &-fixed-sider {
+        // height: 100%;
+        border-bottom-width: 0;
+    }
+    &-fixed-header ~ & > &-sider,
+    &-fixed-header ~ &-sider {
+        margin-top: @layout-header-height;
+    }
+    &-fixed-header ~ & > &-sider > &-sider-inner,
+    &-fixed-header ~ &-sider > &-sider-inner {
+        margin-top: 0;
+    }
+    &-fixed-header ~ & > &-content,
+    &-fixed-header ~ &-content {
+        padding-top: @layout-header-height;
+    }
+
+    &-content {
+        margin-left: @layout-sider-width;
+        background-color: inherit;
+        &:before {
+            content: "";
+            display: block;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: @layout-sider-width;
+            right: 0;
+            z-index: -1;
+        }
+
+        &-wrapper {
+            margin: 0 26px;
+            background: #fff;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            padding: 20px;
+        }
+    }
+
+    &-footer {
+        width: 100%;
+        height: @layout-footer-height;
+        background: @layout-footer-bg;
+        bottom: 0;
+        padding: 15px;
+        & a{
+            font-size: 12px;
+            font-family: "Microsoft YaHei";
+            color: #000;
+        }
+    }
+    &-fixed-footer {
+        position: fixed;
+        z-index: 200;
+    }
+    &-fixed-footer ~ & > &-sider > &-sider-inner,
+    &-fixed-footer ~ &-sider > &-sider-inner {
+        border-bottom-width: @layout-footer-height;
+    }
+    &-fixed-footer ~ & > &-content,
+    &-fixed-footer ~ &-content {
+        padding-bottom: @layout-footer-height;
+    }
+}
