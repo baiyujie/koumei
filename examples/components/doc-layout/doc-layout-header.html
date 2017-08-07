@@ -1,0 +1,34 @@
+<div class="headerWrapper">
+    <header class="header" ref="header" :style="headerStyle" :class="{'header-home': isHome}">
+      <div class="container">
+        <h1>
+            <router-link :to="`/${ lang }`">
+                <img
+                    src="../../assets/images/element-logo.svg"
+                    alt="element-logo"
+                    class="nav-logo">
+                <img
+                    src="../../assets/images/element-logo-small.svg"
+                    alt="element-logo"
+                    class="nav-logo-small">
+            </router-link>
+        </h1>
+        <ul class="nav">
+          <li class="nav-item">
+            <router-link active-class="active" :to="`/${ lang }/guide`">{{ langConfig.guide }}</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link active-class="active" :to="`/${ lang }/component`">{{ langConfig.components }}</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link active-class="active" :to="`/${ lang }/resource`" exact>{{ langConfig.resource }}</router-link>
+          </li>
+          <li class="nav-item">
+            <span class="nav-lang" :class="{ 'active': lang === 'zh-CN' }" @click="switchLang('zh-CN')">中文</span>
+            <span> / </span>
+            <span class="nav-lang" :class="{ 'active': lang === 'en-US' }" @click="switchLang('en-US')">En</span>
+          </li>
+        </ul>
+      </div>
+    </header>
+  </div>
