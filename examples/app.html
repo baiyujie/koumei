@@ -7,25 +7,25 @@
     <title>Koumei 一套组件库</title>
 </head>
 <body :controller="root">
-    <xmp is="ms-api-layout">
-        <ms-api-layout-header :widget="{fixed:true}">
+    <xmp is="ms-layout">
+        <ms-layout-header :widget="{fixed:true}">
             <span class="logo-text">Koumei</span>
-        </ms-api-layout-header>
-        <ms-api-layout-footer :widget="{fixed:true}">
+        </ms-layout-header>
+        <ms-layout-footer :widget="{fixed:true}">
             <div class="text-center">
                 <a href="https://github.com/baiyujie/koumei" target="_blank">Github 仓库地址</a>
             </div>
-        </ms-api-layout-footer>
-         <ms-api-layout> 
-            <ms-api-layout-sider :widget="{fixed:true}">
-                 <wbr is="doc-sidebar"/> 
-            </ms-api-layout-sider>
-            <ms-api-layout-content>
+        </ms-layout-footer>
+        <ms-layout>
+            <ms-layout-sider :widget="{fixed:true}">
+                <wbr is="doc-sidebar"/>
+            </ms-layout-sider>
+            <ms-layout-content>
                 <div class="koumei-layout-content-wrapper">
                     <div ms-html="@currentPage"></div>
                 </div>
-            </ms-api-layout-content> 
-         </ms-api-layout> 
+            </ms-layout-content>
+        </ms-layout>
     </xmp>
     <script>
         window.onresize = function () {

@@ -1,45 +1,45 @@
 @import '../../styles/index';
-@doc-layout-prefix-cls: ~"@{koumei-prefix}-doc-layout";
+@layout-prefix-cls: ~"@{koumei-prefix}-api-layout";
 
-@doc-layout-sider-bg: #fff;
-@doc-layout-sider-width: 224px;
-@doc-layout-header-bg: #2f90ea;
-@doc-layout-header-height: 65px;
-@doc-layout-footer-bg: #fff;
-@doc-layout-footer-height: 55px;
-@doc-layout-content-bg: #f2f4f6;
+@layout-sider-bg: #fff;
+@layout-sider-width: 224px;
+@layout-header-bg: #2f90ea;
+@layout-header-height: 65px;
+@layout-footer-bg: #fff;
+@layout-footer-height: 55px;
+@layout-content-bg: #f2f4f6;
 
 xmp {
     display: none;
 }
 body {
-    background-color: @doc-layout-content-bg;
+    background-color: @layout-content-bg;
     &:before {
         content: "";
         display: block;
         position: fixed;
         top: 0;
         bottom: 0;
-        left: @doc-layout-sider-width;
+        left: @layout-sider-width;
         right: 0;
         z-index: -1;
-        background-color: @doc-layout-content-bg;
+        background-color: @layout-content-bg;
     }
 }
 
-.@{doc-layout-prefix-cls} {
+.@{layout-prefix-cls} {
     height: 100%;
-    background: @doc-layout-content-bg;
+    background: @layout-content-bg;
     position: relative;
 
     &-sider {
         float: left;
-        width: @doc-layout-sider-width;
+        width: @layout-sider-width;
         height: 100%;
         top: 20px;
         bottom: 20px;
         left: 20px;
-        background: @doc-layout-sider-bg;
+        background: @layout-sider-bg;
 
         &:after {
             content: "";
@@ -50,18 +50,18 @@ body {
     &-fixed-sider {
         height: auto;
         position: fixed;
-        border-bottom: solid @doc-layout-footer-height @doc-layout-sider-bg;
+        border-bottom: solid @layout-footer-height @layout-sider-bg;
     }
     &-fixed-sider &-sider-inner {
         height: 100%;
         overflow: auto;
-        border-bottom: solid 0 @doc-layout-sider-bg;
-        margin-top: @doc-layout-header-height;
+        border-bottom: solid 0 @layout-sider-bg;
+        margin-top: @layout-header-height;
     }
     
     &-header {
-        height: @doc-layout-header-height;
-        background: @doc-layout-header-bg;
+        height: @layout-header-height;
+        background: @layout-header-bg;
         padding: 15px;
     }
 
@@ -83,7 +83,7 @@ body {
     }
     &-fixed-header ~ & > &-sider,
     &-fixed-header ~ &-sider {
-        margin-top: @doc-layout-header-height;
+        margin-top: @layout-header-height;
     }
     &-fixed-header ~ & > &-sider > &-sider-inner,
     &-fixed-header ~ &-sider > &-sider-inner {
@@ -91,11 +91,11 @@ body {
     }
     &-fixed-header ~ & > &-content,
     &-fixed-header ~ &-content {
-        padding-top: @doc-layout-header-height;
+        padding-top: @layout-header-height;
     }
 
     &-content {
-        margin-left: @doc-layout-sider-width;
+        margin-left: @layout-sider-width+20;
         background-color: inherit;
         &:before {
             content: "";
@@ -103,7 +103,7 @@ body {
             position: fixed;
             top: 0;
             bottom: 0;
-            left: @doc-layout-sider-width;
+            left: @layout-sider-width;
             right: 0;
             z-index: -1;
         }
@@ -120,8 +120,8 @@ body {
 
     &-footer {
         width: 100%;
-        height: @doc-layout-footer-height;
-        background: @doc-layout-footer-bg;
+        height: @layout-footer-height;
+        background: @layout-footer-bg;
         bottom: 0;
         padding: 15px;
         & a{
@@ -136,10 +136,10 @@ body {
     }
     &-fixed-footer ~ & > &-sider > &-sider-inner,
     &-fixed-footer ~ &-sider > &-sider-inner {
-        border-bottom-width: @doc-layout-footer-height;
+        border-bottom-width: @layout-footer-height;
     }
     &-fixed-footer ~ & > &-content,
     &-fixed-footer ~ &-content {
-        padding-bottom: @doc-layout-footer-height;
+        padding-bottom: @layout-footer-height;
     }
 }

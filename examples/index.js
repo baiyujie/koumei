@@ -34,9 +34,8 @@ if (avalon.msie === 8) {
 }
 require('es5-shim/es5-sham');
 require('./router');
-require('../components/ms-layout');
+require('../components/ms-api-layout');
 require('./components/doc-sidebar/doc-sidebar');
-require('./components/doc-layout/doc-layout');
 
 avalon.define({
     $id: 'root',

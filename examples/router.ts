@@ -31,7 +31,7 @@ function applyRouteConfig(config, parentRoute, accPath = '') {
             });
         });
         // TODO 支持嵌套路由
-        //route.children && applyRouteConfig(route.children, route, accPath + route.path);
+        route.children && applyRouteConfig(route.children, route, accPath + route.path);
     });
 }
 
@@ -46,7 +46,26 @@ const travel = item => {
         item.children.map(travel);
     }
 };
+
+// const routeConfig = [{
+//     path: '/',
+//     component(resolve) {
+//         require.async('/components/gf-dashboard', resolve);
+//     }
+// }, { 
+//     path: '/aaa',
+//     component(resolve) {
+//         require.async('/components/gf-aaa', resolve);
+//     }
+// }, {
+//     path: '/demo',
+//     component(resolve) {
+//         require.async('/components/gf-demo', resolve);
+//     }
+// }];
+
 navConfig.map(travel);
+// console.log(navConfig);
 
 applyRouteConfig(routeConfig, {
     name: 'root'

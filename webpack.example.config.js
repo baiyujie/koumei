@@ -18,7 +18,7 @@ var debug = process.env.NODE_ENV !== 'production';
 
 var config = {
     entry: {
-        app: './newdocs/index.js'
+        app: './examples/index.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -33,7 +33,7 @@ var config = {
                 path.resolve(__dirname, 'index.ts'),
                 path.resolve(__dirname, 'koumei-util.ts'),
                 path.resolve(__dirname, 'components'),
-                path.resolve(__dirname, 'newdocs')
+                path.resolve(__dirname, 'examples')
             ],
             loader: 'ts-loader',
             options: { appendTsSuffixTo: [/\.md$/] }
@@ -41,8 +41,7 @@ var config = {
             test: /\.less$/,
             include: [
                 path.resolve(__dirname, 'styles'),
-                path.resolve(__dirname, 'components'),
-                path.resolve(__dirname, 'newdocs/components')
+                path.resolve(__dirname, 'components')
             ],
             use: extractLess.extract({
                 use: [{
@@ -55,7 +54,6 @@ var config = {
             test: /\.css$/,
             include: [
                 path.resolve(__dirname, 'components'),
-                path.resolve(__dirname, 'newdocs/components'),
                 path.resolve(__dirname, 'node_modules')
             ],
             use: extractCss.extract({
@@ -67,7 +65,7 @@ var config = {
             test: /\.html$/,
             include: [
                 path.resolve(__dirname, 'components'),
-                path.resolve(__dirname, 'newdocs/components')
+                path.resolve(__dirname, 'examples/components')
             ],
             use: [
                 {
@@ -85,13 +83,12 @@ var config = {
             test: /\.(eot|otf|ttf|woff|woff2|svg|png|gif)\w*/,
             include: [
                 path.resolve(__dirname, 'components'),
-                path.resolve(__dirname, 'newdocs/components'),
                 path.resolve(__dirname, 'node_modules')
             ],
             loader: 'file-loader',
             query: {
                 limit: 1,
-                name: 'img/[name].[ext]'
+                name: '[name].[ext]'
             }
         }, {
             test: /\.md$/,
@@ -117,7 +114,7 @@ var config = {
         extractLess,
         extractCss,
         new HtmlWebpackPlugin({
-            template: 'newdocs/index.html'
+            template: 'examples/index.html'
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',

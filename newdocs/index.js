@@ -36,6 +36,7 @@ require('es5-shim/es5-sham');
 require('./router');
 require('../components/ms-layout');
 require('./components/doc-sidebar/doc-sidebar');
+require('./components/doc-header/index');
 
 avalon.define({
     $id: 'root',

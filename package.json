@@ -11,6 +11,7 @@
     "dev": "webpack-dev-server --config webpack.test.config.js",
     "doc": "webpack-dev-server --config webpack.doc.config.js",
     "newdoc": "webpack-dev-server --config webpack.newdoc.config.js",
+    "example": "webpack-dev-server --config webpack.example.config.js",
     "win:doc": "webpack --config webpack.newdoc.config.js --output-path=output --env.production",
     "mac:doc": "webpack --config webpack.doc.config.js --output-path=output --env.production",
     "test": "npm-run-all -p -r  server nightwatch",

@@ -7,25 +7,24 @@
     <title>Koumei 一套组件库</title>
 </head>
 <body :controller="root">
-    <xmp is="ms-layout">
-        <ms-layout-header :widget="{fixed:true}">
-            <span class="logo-text">Koumei</span>
-        </ms-layout-header>
-        <ms-layout-footer :widget="{fixed:true}">
-            <div class="text-center">
-                <a href="https://github.com/baiyujie/koumei" target="_blank">Github 仓库地址</a>
-            </div>
-        </ms-layout-footer>
-        <ms-layout>
-            <ms-layout-sider :widget="{fixed:true}">
+    <!-- <xmp is="ms-layout-doc-header"  :widget="{fixed:true}">
+        <span class="logo-img" ></span><span class="logo-text">Koumei</span>
+    </xmp> -->
+    <wbr is="doc-header"/>
+    <xmp is="ms-layout-doc"> 
+        <ms-layout-doc-content>
+            <div class="koumei-layout-doc-content-sider" >
                 <wbr is="doc-sidebar"/>
-            </ms-layout-sider>
-            <ms-layout-content>
-                <div class="koumei-layout-content-wrapper">
-                    <div ms-html="@currentPage"></div>
-                </div>
-            </ms-layout-content>
-        </ms-layout>
+            </div>
+            <div class="koumei-layout-doc-content-wrapper">
+                <div ms-html="@currentPage"></div>
+            </div>
+        </ms-layout-doc-content>
+    </xmp> 
+    <xmp is="ms-layout-doc-footer"  :widget="{fixed:true}">
+        <div class="text-center">
+            <a href="https://github.com/baiyujie/koumei" target="_blank">Github 仓库地址</a>
+        </div>
     </xmp>
     <script>
         window.onresize = function () {
