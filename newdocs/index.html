@@ -7,9 +7,6 @@
     <title>Koumei 一套组件库</title>
 </head>
 <body :controller="root">
-    <!-- <xmp is="ms-layout-doc-header"  :widget="{fixed:true}">
-        <span class="logo-img" ></span><span class="logo-text">Koumei</span>
-    </xmp> -->
     <wbr is="doc-header"/>
     <xmp is="ms-layout-doc"> 
         <ms-layout-doc-content>
@@ -21,7 +18,7 @@
             </div>
         </ms-layout-doc-content>
     </xmp> 
-    <xmp is="ms-layout-doc-footer"  :widget="{fixed:true}">
+    <xmp is="ms-layout-doc-footer" :widget="{fixed:true}">
         <div class="text-center">
             <a href="https://github.com/baiyujie/koumei" target="_blank">Github 仓库地址</a>
         </div>
@@ -29,6 +26,7 @@
     <script>
         window.onresize = function () {
             document.body.style.height = document.body.style.minHeight = window.document.documentElement.clientHeight + 'px';
+            console.log(document.body.style.height);
         }
     </script>
 </body>

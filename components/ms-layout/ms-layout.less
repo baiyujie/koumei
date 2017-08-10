@@ -2,30 +2,29 @@
 @layout-prefix-cls: ~"@{koumei-prefix}-layout";
 @layout-doc-prefix-cls: ~"@{koumei-prefix}-layout-doc";
 
+@layout-body-bg: #fff;
+
 @layout-sider-bg: #fff;
 @layout-sider-width: 224px;
 @layout-header-bg: #20a0ff;
 @layout-header-height: 55px;
 @layout-footer-bg: #fff;
 @layout-footer-height: 55px;
-@layout-content-bg: #f2f4f6;
 
 @layout-doc-body-width:1170px;
 @layout-doc-sider-bg: #fff;
-@layout-doc-header-bg: #20a0ff;
-@layout-doc-header-height: 85;
+@layout-doc-header-height: 80;
 @layout-doc-sider-width: 25%;
 @layout-doc-content-width: 75%;
-@layout-doc-content-bg: #f2f4f6;
-@layout-doc-footer-bg: #fff;
-@layout-doc-footer-height: 55px;
-
+// @layout-doc-content-bg: #f2f4f6;
+@layout-doc-footer-bg: #324057;
+@layout-doc-footer-height: 50px;
 
 xmp {
     display: none;
 }
 body {
-    background-color: @layout-content-bg;
+    background-color: @layout-body-bg;
     &:before {
         content: "";
         display: block;
@@ -35,13 +34,26 @@ body {
         left: @layout-sider-width;
         right: 0;
         z-index: -1;
-        background-color: @layout-content-bg;
+        background-color: @layout-body-bg;
     }
+}
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
 }
 
 .@{layout-prefix-cls} {
     height: 100%;
-    background: @layout-content-bg;
+    background: @layout-body-bg;
     position: relative;
 
     &-sider {
@@ -159,7 +171,7 @@ body {
 
 .@{layout-doc-prefix-cls} {
     height: 100%;
-    background: @layout-doc-content-bg;
+    background: @layout-body-bg;
     position: relative;
     
     padding-top: 110px;
@@ -179,24 +191,6 @@ body {
         overflow: auto;
         border-bottom: solid 0 @layout-doc-sider-bg;
         margin-top: @layout-doc-header-height;
-    }
-    
-    &-header {
-        height: @layout-doc-header-height;
-        background: @layout-doc-header-bg;
-        padding: 10px;
-    }
-    &-header .logo {
-        width: @layout-doc-body-width;
-        margin-right: auto;
-        margin-left: auto;
-        padding-right: 15px;
-        padding-left: 15px;
-    }
-    &-header .logo-text{
-        font-size: 24px;
-        font-family: "Microsoft YaHei";
-        color: #fff;
     }
 
     &-fixed-header {
@@ -267,7 +261,7 @@ body {
         & a{
             font-size: 12px;
             font-family: "Microsoft YaHei";
-            color: #000;
+            color: #a4aebd;
         }
     }
     &-fixed-footer {
@@ -280,6 +274,6 @@ body {
     }
     &-fixed-footer ~ & > &-content,
     &-fixed-footer ~ &-content {
-        padding-bottom: @layout-doc-footer-height+100;
+        padding-bottom: @layout-doc-footer-height;
     }
 }

@@ -82,7 +82,7 @@ var config = {
                 }
             ]
         }, {
-            test: /\.(eot|otf|ttf|woff|woff2|svg|png|gif)\w*/,
+            test: /\.(svg|png|gif)\w*/,
             include: [
                 path.resolve(__dirname, 'components'),
                 path.resolve(__dirname, 'newdocs/components'),
@@ -91,7 +91,19 @@ var config = {
             loader: 'file-loader',
             query: {
                 limit: 1,
-                name: 'img/[name].[ext]'
+                name: 'assets/img/[name].[ext]'
+            }
+        }, {
+            test: /\.(eot|otf|ttf|woff|woff2)\w*/,
+            include: [
+                path.resolve(__dirname, 'components'),
+                path.resolve(__dirname, 'newdocs/components'),
+                path.resolve(__dirname, 'node_modules')
+            ],
+            loader: 'file-loader',
+            query: {
+                limit: 1,
+                name: 'assets/fonts/[name].[ext]'
             }
         }, {
             test: /\.md$/,
