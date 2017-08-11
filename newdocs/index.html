@@ -7,22 +7,24 @@
     <title>Koumei 一套组件库</title>
 </head>
 <body :controller="root">
-    <wbr is="doc-header"/>
-    <xmp is="ms-layout-doc"> 
-        <ms-layout-doc-content>
-            <div class="koumei-layout-doc-content-sider" >
-                <wbr is="doc-sidebar"/>
+    <div class="ms-layout">
+        <wbr is="doc-header"/> 
+        <xmp is="ms-layout-doc"> 
+            <ms-layout-doc-content>
+                <div class="koumei-layout-doc-content-sider" >
+                    <wbr is="doc-sidebar"/>
+                </div>
+                <div class="koumei-layout-doc-content-wrapper">
+                    <div ms-html="@currentPage"></div>
+                </div>
+            </ms-layout-doc-content>
+        </xmp> 
+        <xmp is="ms-layout-doc-footer" :widget="{fixed:true}">
+            <div class="text-center">
+                <a href="https://github.com/baiyujie/koumei" target="_blank">Github 仓库地址</a>
             </div>
-            <div class="koumei-layout-doc-content-wrapper">
-                <div ms-html="@currentPage"></div>
-            </div>
-        </ms-layout-doc-content>
-    </xmp> 
-    <xmp is="ms-layout-doc-footer" :widget="{fixed:true}">
-        <div class="text-center">
-            <a href="https://github.com/baiyujie/koumei" target="_blank">Github 仓库地址</a>
-        </div>
-    </xmp>
+        </xmp>
+    </div>
     <script>
         window.onresize = function () {
             document.body.style.height = document.body.style.minHeight = window.document.documentElement.clientHeight + 'px';

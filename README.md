@@ -1,4 +1,4 @@
-<h1 align="center">:coffee:koumei:coffee:</h1>
+<h1 align="center">koumei</h1>
 
 <div align="center">
   <strong>基于 <a href="https://github.com/RubyLouvre/avalon">Avalon2</a> 的 组件库 beta</strong>

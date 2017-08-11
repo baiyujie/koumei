@@ -37,19 +37,6 @@ body {
         background-color: @layout-body-bg;
     }
 }
-ul, menu, dir {
-    display: block;
-    list-style-type: disc;
-    -webkit-margin-before: 1em;
-    -webkit-margin-after: 1em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-    -webkit-padding-start: 40px;
-}
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-}
 
 .@{layout-prefix-cls} {
     height: 100%;
@@ -249,6 +236,7 @@ li {
             background: #fff;
             padding: 20px;
             width: @layout-doc-content-width;
+            padding-bottom: @layout-doc-footer-height; 
         }
     }
 
@@ -260,7 +248,6 @@ li {
         padding: 15px;
         & a{
             font-size: 12px;
-            font-family: "Microsoft YaHei";
             color: #a4aebd;
         }
     }
