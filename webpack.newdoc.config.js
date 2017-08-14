@@ -111,6 +111,7 @@ var config = {
                 path.resolve(__dirname, 'README.md'),
                 path.resolve(__dirname, 'CHANGELOG.md'),
                 path.resolve(__dirname, 'components'),
+                path.resolve(__dirname, 'newdocs/components')
             ],
             use: [
                 { loader: 'koumei-markdown-loader', options: { highlight: false } }

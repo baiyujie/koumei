@@ -3,6 +3,8 @@ import 'mmRouter';
 import { menu as menuStore } from './stores';
 import * as navConfig from './nav.config.js';
 
+var bootbox = require('bootbox');
+
 function getPage(component) {
     const html = `<xmp is="${component}" :widget="{id:'${component.replace(/\-/g, '_')}'}"></xmp>`;
     return html
@@ -14,7 +16,7 @@ function applyRouteConfig(config, parentRoute, accPath = '') {
         if (route.component) {
             components.currentPage = route.component;
         }
-        if (route.components) {
+        if (route.components) {// 没有对应属性
             components = route.components;
         }
         avalon.router.add(accPath + route.path, function () {
@@ -36,6 +38,7 @@ function applyRouteConfig(config, parentRoute, accPath = '') {
 }
 
 const routeConfig = [];
+// 递归菜单的子元素赋值,routeConfig
 const travel = item => {
     if (!item.children || item.children.length === 0) {
         routeConfig.push({
@@ -46,7 +49,8 @@ const travel = item => {
         item.children.map(travel);
     }
 };
-navConfig.map(travel);
+console.log(bootbox);
+navConfig['zh-CN'].map(travel);
 
 applyRouteConfig(routeConfig, {
     name: 'root'

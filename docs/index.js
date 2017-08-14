@@ -27,7 +27,7 @@ var avalon = require('avalon2');
 avalon.config({
     debug: true
 });
-if (avalon.msie === 8) {
+if (avalon.msie < 8) {
     Object.defineProperty = function (obj, property, meta) {
         obj[property] = meta.value;
     }

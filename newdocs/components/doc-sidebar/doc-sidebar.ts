@@ -19,7 +19,7 @@ avalon.component(name, {
             this.openKeys = openKeys.slice(-1);
         },
         onInit(event) {
-            this.menu = navConfig;
+            this.menu = navConfig['zh-CN'][1].children;
             menuStore.selectedKeys$.subscribe(v => {
                 this.selectedKeys = v;
             });
