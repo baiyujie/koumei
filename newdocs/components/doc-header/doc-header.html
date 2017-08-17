@@ -5,22 +5,17 @@
                 <img src="assets/img/jd256.png" alt="jd-logo" class="logoimg"/>
             </a>
         </h1>
-        <xmp is="doc-menu"></xmp>
-        <!-- <ul class="navtab">
-            <li class="navtab-item">
-                <a href="#/zh-CN/guide" class="">指南</a>
+        <!-- <xmp is="doc-menu"></xmp> -->
+        <ul :class="@wrapper" class="menu">
+            <li :for="item in menu" class="item">
+                <!-- <a :click="handleClick(item, item.key, [item.key])"  class="">{{item.title}}</a> -->
+                <a :click="handleClick(item, item.key, [item.key])" :class="@selectedKeys.contains(item.key) ? 'active' : ''">{{item.title}}</a>
             </li>
-            <li class="navtab-item">
-                <a href="#/zh-CN/component" class="active">组件</a>
-            </li>
-            <li class="navtab-item">
-                <a href="#/zh-CN/resource" class="">资源</a>
-            </li>
-            <li class="navtab-item">
-                <span class="navtab-lang active">中文</span>
+            <li class="item">
+                <span class="lang" :class="{'active':@locale=='zh-CN'}" :click="localClick('zh-CN')">中文</span>
                 <span> / </span>
-                <span class="navtab-lang">En</span>
+                <span class="lang" :class="{'active':@locale=='en-US'}" :click="localClick('en-US')">En</span>
             </li>
-        </ul> -->
+        </ul>
     </div>
 </ms-layout-doc-header>

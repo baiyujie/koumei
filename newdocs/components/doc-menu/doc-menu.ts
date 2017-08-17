@@ -15,6 +15,7 @@ avalon.component(name, {
         openKeys: ['components'],
         onClick: avalon.noop,
         onInit(event) {
+            debugger;
             this.menu = navConfig['zh-CN'];
             menuStore.selectedKeys$.subscribe(v => {
                 this.selectedKeys = v;

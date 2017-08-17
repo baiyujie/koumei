@@ -8,10 +8,13 @@ export const name = 'doc-sidebar';
 
 avalon.component(name, {
     template: require('./doc-sidebar.html'),
+    navConfig: [],
+    menuStore: avalon.noop,
     defaults: {
         menu: [],
         selectedKeys: [],
-        openKeys: ['components'],
+        locale:'',
+        openKeys: ['component-api-guide','components-api-basic'],
         handleMenuClick(item, key, keyPath) {
             avalon.history.setHash(item.uri);
         },
@@ -19,8 +22,17 @@ avalon.component(name, {
             this.openKeys = openKeys.slice(-1);
         },
         onInit(event) {
-            this.menu = navConfig['zh-CN'][1].children;
-            menuStore.selectedKeys$.subscribe(v => {
+            this.navConfig = navConfig;
+            this.menuStore = menuStore;
+            this.locale = avalon.vmodels.root.locale || 'zh-CN';
+            this.loadMenu();
+            this.$watch('locale', v => {
+                this.loadMenu();
+            });
+        },
+        loadMenu() {
+            this.menu = this.navConfig[this.locale][1].children;
+            this.menuStore.selectedKeys$.subscribe(v => {
                 this.selectedKeys = v;
             });
         }

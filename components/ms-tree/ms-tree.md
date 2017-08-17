@@ -55,7 +55,7 @@ avalon.define({
 | expandedKeys | 展开的父节点的 key 集合 | string\[\] | \[\] |
 | checkedKeys | 勾选的节点的 key 集合 | string\[\] | \[\] |
 | onCheck | 勾选节点的回调，只有当 checkable 为 true 时有效 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event}) | noop |
-| onCheck | 选择节点的回调 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | noop |
+| onSelect | 选择节点的回调 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | noop |
 
 
 TreeNode
@@ -65,3 +65,5 @@ TreeNode
 | title | 标题 | string | - |
 | key | 节点标识 | string | - |
 | children | 子节点 | TreeNode\[\] | - |
+
+> 关于 TreeNode 的更多配置，请参考 [z-tree 官方文档](http://www.treejs.cn/v3/main.php)

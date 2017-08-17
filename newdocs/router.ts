@@ -20,6 +20,7 @@ function applyRouteConfig(config, parentRoute, accPath = '') {
             components = route.components;
         }
         avalon.router.add(accPath + route.path, function () {
+            console.log(this);
             Object.keys(components).map(viewName => {
                 let component = components[viewName];
                 if (typeof component === 'function') {
@@ -31,6 +32,8 @@ function applyRouteConfig(config, parentRoute, accPath = '') {
                     avalon.vmodels[parentRoute.name][viewName] = getPage(component.name);
                 }
             });
+        }, {
+            locale:'zh-CN'
         });
         // TODO 支持嵌套路由
         //route.children && applyRouteConfig(route.children, route, accPath + route.path);
