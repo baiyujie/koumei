@@ -5,11 +5,13 @@ require('highlight.js/styles/atom-one-light.css');
 require('es5-shim');
 require('es6-promise/dist/es6-promise.auto');
 
+var locale = 'zh-CN';
+
 var jQuery = require('jquery');
 window.$ = window.jQuery = jQuery;
 require('bootstrap');
 var bootbox = require('bootbox');
-bootbox.setLocale('zh_CN');
+bootbox.setLocale(locale);
 
 // 提前禁止avalon对Object.create的实现
 if (!Object.create) {
@@ -27,25 +29,29 @@ var avalon = require('avalon2');
 avalon.config({
     debug: true
 });
-if (avalon.msie === 8) {
+if (avalon.msie < 8) {
     Object.defineProperty = function (obj, property, meta) {
         obj[property] = meta.value;
     }
 }
-require('es5-shim/es5-sham');
-require('./router');
-require('../components/ms-api-layout');
-require('./components/doc-sidebar/doc-sidebar');
-
 avalon.define({
     $id: 'root',
+    locale:locale,
     currentPage: '',
     breadcrumb: []
 });
+
+require('es5-shim/es5-sham');
+require('./router');
+require('../components/ms-layout');
+require('./components/doc-sidebar/doc-sidebar');
+require('./components/doc-menu/doc-menu');
+require('./components/doc-header/index');
+
 avalon.history.start({
     fireAnchor: false
 });
 if (!/#!/.test(global.location.hash)) {
-    avalon.router.navigate('/', 2);
+    avalon.router.navigate('/installation/'+locale, 2);
 }
 avalon.scan(document.body);
