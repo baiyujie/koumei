@@ -21,7 +21,6 @@ function applyRouteConfig(config, parentRoute, accPath = '') {
         }
         // 20170818:增加国际化标识传惨/:locale
         avalon.router.add(accPath + route.path+'/:locale', function () {
-            console.log(this);
             Object.keys(components).map(viewName => {
                 let component = components[viewName];
                 if (typeof component === 'function') {
