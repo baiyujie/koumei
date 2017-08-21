@@ -38,6 +38,8 @@ if (avalon.msie <= 8) {
 avalon.define({
     $id: 'root',
     locale:locale,
+    tabIndex:1,
+    hideMenu:true,
     currentPage: '',
     breadcrumb: []
 });
@@ -46,7 +48,7 @@ require('es5-shim/es5-sham');
 require('./router');
 require('../components/ms-layout');
 require('./components/doc-sidebar/doc-sidebar');
-require('./components/doc-header/index');
+require('./components/doc-header/doc-header');
 
 avalon.history.start({
     fireAnchor: false

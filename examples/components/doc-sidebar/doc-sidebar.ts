@@ -12,6 +12,7 @@ avalon.component(name, {
         menu: [],
         selectedKeys: [],
         locale:'',
+        tabIndex: avalon.noop,
         navConfig: [],
         menuStore: avalon.noop,
         openKeys: ['component-api-guide','components-api-basic'],
@@ -29,9 +30,12 @@ avalon.component(name, {
             this.$watch('locale', v => {
                 this.loadMenu();
             });
+            this.$watch('tabIndex', v => {
+                this.loadMenu();
+            });
         },
         loadMenu() {
-            this.menu = this.navConfig[this.locale][1].children;
+            this.menu = this.navConfig[this.locale][this.tabIndex].children;
             this.menuStore.selectedKeys$.subscribe(v => {
                 this.selectedKeys = v;
             });

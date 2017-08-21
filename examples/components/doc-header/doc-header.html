@@ -6,8 +6,8 @@
             </a>
         </h1>
         <ul :class="@wrapper" class="menu">
-            <li :for="item in menu" class="item">
-                <a :click="handleClick(item, item.key, [item.key])" :class="@selectedKeys.contains(item.key) ? 'active' : ''">{{item.title}}</a>
+            <li :for="($index, item) in menu" class="item">
+                <a :click="handleClick(item, item.key, [item.key], $index)" :class="@selectedKeys.contains(item.key) ? 'active' : ''">{{item.title}}</a>
             </li>
             <li class="item">
                 <span class="lang" :class="{'active':@locale=='zh-CN'}" :click="localClick('zh-CN')">中文</span>

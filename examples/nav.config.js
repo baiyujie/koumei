@@ -2,15 +2,30 @@ module.exports = {
     "zh-CN":[{
             key: 'component-api-docs-guide',
             title: '指南',
-            uri: '/guide',
-            location: function (resolve) {
-                require.ensure([], function () {
-                    resolve(require('./docs/guide.md?noEval=true'));
-                });
-            }
+            uri: '/design',
+            children:[{
+                    key: 'component-api-docs-design',
+                    title: '设计原则',
+                    uri: '/design',
+                    location: function (resolve) {
+                        require.ensure([], function () {
+                            resolve(require('./docs/design.md?noEval=true'));
+                        });
+                    }
+                }, {
+                    key: 'component-api-docs-nav',
+                    title: '导航',
+                    uri: '/nav',
+                    location: function (resolve) {
+                        require.ensure([], function () {
+                            resolve(require('./docs/nav.md?noEval=true'));
+                        });
+                    }
+                }]
         }, {
             key: 'component-api',
             title: '组件',
+            uri: '/installation',
             children:[{
                 key: 'component-api-guide',
                 title: '开发指南',                
@@ -241,14 +256,29 @@ module.exports = {
         key: 'component-api-docs-guide',
         title: 'Guide',
         uri: '/guide',
-        location: function (resolve) {
-            require.ensure([], function () {
-                resolve(require('./docs/guide.md?noEval=true'));
-            });
-        }
+        children:[{
+                key: 'component-api-docs-design',
+                title: 'Design Disciplines',
+                uri: '/design',
+                location: function (resolve) {
+                    require.ensure([], function () {
+                        resolve(require('./docs/design.md?noEval=true'));
+                    });
+                }
+            }, {
+                key: 'component-api-docs-nav',
+                title: 'Navigation',
+                uri: '/nav',
+                location: function (resolve) {
+                    require.ensure([], function () {
+                        resolve(require('./docs/nav.md?noEval=true'));
+                    });
+                }
+            }]
     }, {
         key: 'component-api',
         title: 'Component',
+        uri: '/component',
         children:[{
             key: 'component-api-guide',
             title: 'Development',                

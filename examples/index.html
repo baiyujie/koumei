@@ -10,8 +10,8 @@
     <wbr is="doc-header"/> 
     <xmp is="ms-layout-doc"> 
         <ms-layout-doc-content>
-            <div class="koumei-layout-doc-content-sider" >
-                <wbr is="doc-sidebar" :widget="{locale:@locale}"/>
+            <div class="koumei-layout-doc-content-sider" ms-visible="hideMenu">
+                <wbr is="doc-sidebar" :widget="{locale:@locale,tabIndex:@tabIndex}"/>
             </div>
             <div class="koumei-layout-doc-content-wrapper">
                 <div ms-html="@currentPage"></div>
