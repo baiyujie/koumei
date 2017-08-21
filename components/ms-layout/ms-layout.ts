@@ -47,3 +47,48 @@ layoutComponent.extend({
         width: '55px'
     }
 });
+
+
+const layoutDocComponent = avalon.component('ms-layout-doc', {
+    template: `<div class="koumei-layout-doc" :css="@style" :class="@className"><slot /></div>`,
+    soleSlot: 'slot',
+    defaults: {
+        style: {},
+        className: ''
+    }
+});
+layoutComponent.extend({
+    displayName: 'ms-layout-doc-header',
+    template: `<div class="koumei-layout-doc-header" :css="@style" :class="@className" :class-1="[@fixed?'koumei-layout-doc-fixed-header':'']"><slot /></div>`,
+    soleSlot: 'slot',
+    defaults: {
+        fixed: false,
+        width: '65px'
+    }
+});
+layoutDocComponent.extend({
+    displayName: 'ms-layout-doc-content',
+    template: `<div class="koumei-layout-doc-content" :css="@style" :class="@className"><slot /></div>`,
+    soleSlot: 'slot',
+    defaults: {
+        fixed: false
+    }
+});
+layoutDocComponent.extend({
+    displayName: 'ms-layout-doc-sider',
+    template: `<div class="koumei-layout-doc-sider" :css="@style" :class="@className" :class-1="[@fixed?'koumei-layout-doc-fixed-sider':'']"><div class="koumei-layout-doc-sider-inner"><slot /></div></div>`,
+    soleSlot: 'slot',
+    defaults: {
+        fixed: false,
+        width: '300px'
+    }
+});
+layoutDocComponent.extend({
+    displayName: 'ms-layout-doc-footer',
+    template: `<div class="koumei-layout-doc-footer" :css="@style" :class="@className" :class-1="[@fixed?'koumei-layout-doc-fixed-footer':'']"><slot /></div>`,
+    soleSlot: 'slot',
+    defaults: {
+        fixed: false,
+        width: '55px'
+    }
+});

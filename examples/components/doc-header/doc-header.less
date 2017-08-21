@@ -1,0 +1,121 @@
+@import '../../../styles/index';
+
+
+@layout-doc-prefix-cls: ~"@{koumei-prefix}-layout-doc-header";
+@layout-doc-body-width:1170px;
+@layout-doc-header-bg: #20a0ff;
+@layout-doc-header-height: 80;
+
+
+
+.@{layout-doc-prefix-cls} {
+    height: @layout-doc-header-height;
+    background: @layout-doc-header-bg;
+    line-height: 80px;
+    color: #fff;
+
+    .logo {
+        width: @layout-doc-body-width;
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .logo-img{
+        height: 33px;
+        width: 256px;
+        background:url(./img/jd256.png) no-repeat;
+        background-size: auto 33px;
+    }
+
+    .logo h1 {
+        margin: 0;
+        float: left;
+        font-size: 32px;
+        font-weight: 400;
+        line-height: 80px;
+    }
+    
+    &.header .logo h1 a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+    }
+    
+    .logoimg-small, .logoimg {
+        vertical-align: sub;
+    }
+
+
+
+    .menu{
+        float: right;
+        height: 100%;
+        line-height: 80px;
+        background: transparent;
+        padding: 0;
+        margin: 0;
+        
+        .item{
+            margin: 0;
+            float: left;
+            list-style: none;
+            position: relative;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+        
+        .item a{
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            padding: 0 20px;
+            opacity: .8;
+        }
+
+        
+        .item a.active:before {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #99d2fc;
+        }
+
+        .item a.active{
+            font-weight: 700;
+        }
+
+        .item a.active, .item a:hover {
+            opacity: 1;
+        }
+
+        .item:last-child {
+            cursor: default;
+            margin-left: 34px;
+        }
+
+        .item:last-child span {
+            opacity: .8;
+        }
+
+        .item:last-child .lang {
+            cursor: pointer;
+            display: inline-block;
+            height: 100%;
+        }
+
+        .item:last-child .lang:hover {
+            opacity: 1;
+        }
+
+        .item:last-child .lang.active {
+            font-weight: 700;
+            opacity: 1;
+        }
+    }
+}

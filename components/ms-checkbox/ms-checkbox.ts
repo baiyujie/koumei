@@ -34,6 +34,7 @@ avalon.component('ms-checkbox', {
         wrapper: 'checkbox',
         label: '',
         checked: false,
+        indeterminate: false,
         group: false,
         disabled: false,
         onChange: avalon.noop,
@@ -45,11 +46,6 @@ avalon.component('ms-checkbox', {
             // if (this.inline != void 0) {
             //     this.wrapper = 'checkbox-inline';
             // }
-        },
-        onReady(event) {
-            parseSlotToVModel(this);
-        },
-        onDispose(vm, el) {
         }
     }
 });

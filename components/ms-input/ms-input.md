@@ -5,7 +5,7 @@
 #### 基本使用
 
 ``` html
-<div :controller="doc-input-basic">
+<div :controller="doc-input-basic" style="padding-bottom:10px;">
     <xmp is="ms-input" :widget="{col:'name',value:@value,$rules:{required:true,message:'请输入名字'}}"></xmp>
 </div>
 ```

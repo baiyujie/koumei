@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var es3ifyPlugin = require('es3ify-webpack-plugin');
 
 var extractLess = new ExtractTextPlugin({
     filename: "bundle[chunkHash].css",
@@ -13,9 +14,11 @@ var extractCss = new ExtractTextPlugin({
     disable: false
 });
 
-module.exports = {
+var debug = process.env.NODE_ENV !== 'production';
+
+var config = {
     entry: {
-        app: './docs/index.js'
+        app: './examples/index.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -30,7 +33,7 @@ module.exports = {
                 path.resolve(__dirname, 'index.ts'),
                 path.resolve(__dirname, 'koumei-util.ts'),
                 path.resolve(__dirname, 'components'),
-                path.resolve(__dirname, 'docs')
+                path.resolve(__dirname, 'examples')
             ],
             loader: 'ts-loader',
             options: { appendTsSuffixTo: [/\.md$/] }
@@ -38,7 +41,8 @@ module.exports = {
             test: /\.less$/,
             include: [
                 path.resolve(__dirname, 'styles'),
-                path.resolve(__dirname, 'components')
+                path.resolve(__dirname, 'components'),
+                path.resolve(__dirname, 'examples/components')
             ],
             use: extractLess.extract({
                 use: [{
@@ -50,6 +54,8 @@ module.exports = {
         }, {
             test: /\.css$/,
             include: [
+                path.resolve(__dirname, 'components'),
+                path.resolve(__dirname, 'examples/components'),
                 path.resolve(__dirname, 'node_modules')
             ],
             use: extractCss.extract({
@@ -61,23 +67,51 @@ module.exports = {
             test: /\.html$/,
             include: [
                 path.resolve(__dirname, 'components'),
-                path.resolve(__dirname, 'docs/components')
+                path.resolve(__dirname, 'examples/components')
             ],
-            loader: 'raw-loader'
+            use: [
+                {
+                    loader: 'raw-loader'
+                }, {
+                    loader: 'string-replace-loader',
+                    query: {
+                        multiple: [
+                            { search: '\r', replace: '', flags: 'g' }
+                        ]
+                    } 
+                }
+            ]
         }, {
-            test: /\.(eot|otf|ttf|woff|woff2|svg)\w*/,
+            test: /\.(svg|png|gif)\w*/,
             include: [
+                path.resolve(__dirname, 'components'),
+                path.resolve(__dirname, 'examples/components'),
                 path.resolve(__dirname, 'node_modules')
             ],
             loader: 'file-loader',
             query: {
                 limit: 1,
-                name: '[name].[ext]'
+                name: 'assets/img/[name].[ext]'
+            }
+        }, {
+            test: /\.(eot|otf|ttf|woff|woff2)\w*/,
+            include: [
+                path.resolve(__dirname, 'components'),
+                path.resolve(__dirname, 'examples/components'),
+                path.resolve(__dirname, 'node_modules')
+            ],
+            loader: 'file-loader',
+            query: {
+                limit: 1,
+                name: 'assets/fonts/[name].[ext]'
             }
         }, {
             test: /\.md$/,
             include: [
+                path.resolve(__dirname, 'README.md'),
+                path.resolve(__dirname, 'CHANGELOG.md'),
                 path.resolve(__dirname, 'components'),
+                path.resolve(__dirname, 'examples/docs')
             ],
             use: [
                 { loader: 'koumei-markdown-loader', options: { highlight: false } }
@@ -91,11 +125,12 @@ module.exports = {
             koumei: path.resolve(__dirname, "index.ts")
         }
     },
+    watch: true,
     plugins: [
         extractLess,
         extractCss,
         new HtmlWebpackPlugin({
-            template: 'docs/index.html'
+            template: 'examples/index.html'
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
@@ -122,4 +157,13 @@ module.exports = {
         }
     },
     devtool: 'inline-source-map'
+};
+
+module.exports = function (env) {
+    if (env && env.production) {
+        config.plugins.unshift(new es3ifyPlugin());
+        config.watch = false;
+        delete config.devtool;
+    }
+    return config;
 };

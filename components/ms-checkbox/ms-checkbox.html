@@ -1,6 +1,7 @@
 <div :class="@wrapper" class="koumei-checkbox" style="margin-top: 0; margin-bottom: 0;">
     <label class="koumei-checkbox-inner koumei-checkbox-inner-ie">
         <input type="checkbox"
+            :class="[@indeterminate?'koumei-checkbox-indeterminate':'']"
             :attr="{id:@helpId,disabled:@disabled}"
             :duplex-checked="@checked"
             data-duplex-changed="@onChange"

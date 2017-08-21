@@ -6,6 +6,7 @@
 <div :controller="doc-table-local">
     <ms-table :widget="{data:@list,actions:@actions,onSelect:@handleSelect,onSelectAll:@handleSelectAll,selectionChange:@handleSelectionChange}">
         <ms-table-header :widget="{dataIndex:'id',type:'selection'}"></ms-table-header>
+        <ms-table-header :widget="{title:'序号',type:'index'}"></ms-table-header>
         <ms-table-header :widget="{title:'地址',dataIndex:'address'}"></ms-table-header>
         <ms-table-header :widget="{title:'省份',dataIndex:'province'}"></ms-table-header>
         <ms-table-header :widget="{title:'名称'}"><span :skip>{{record.name}}</span></ms-table-header>
@@ -72,7 +73,8 @@ const vm1 = avalon.define({
     },
     fetch(params = {}) {
         vm1.loading = true;
-        $.getJSON('/api/demo', params).then(data => {
+        var url = 'http://easy-mock.com/mock/58ff1b7c5e43ae5dbea5eff3/api/demo';
+        $.getJSON(url, params).then(data => {
             vm1.pagination.total = data.total;
             data.rows[0].region_parent_id = Date.now();
             vm1.remoteList = data.rows;

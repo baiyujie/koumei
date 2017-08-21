@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+    <title>Koumei 一套组件库</title>
+</head>
+<body :controller="root">
+    <wbr is="doc-header"/> 
+    <xmp is="ms-layout-doc"> 
+        <ms-layout-doc-content>
+            <div class="koumei-layout-doc-content-sider" ms-visible="hideMenu">
+                <wbr is="doc-sidebar" :widget="{locale:@locale,tabIndex:@tabIndex}"/>
+            </div>
+            <div class="koumei-layout-doc-content-wrapper">
+                <div ms-html="@currentPage"></div>
+            </div>
+        </ms-layout-doc-content>
+    </xmp> 
+    <xmp is="ms-layout-doc-footer" :widget="{fixed:true}">
+        <div class="text-center">
+            <a href="https://github.com/baiyujie/koumei" target="_blank">Github 仓库地址</a>
+        </div>
+    </xmp>
+    <script>
+        window.onresize = function () {
+            document.body.style.height = document.body.style.minHeight = window.document.documentElement.clientHeight + 'px';
+        }
+    </script>
+</body>
+</html>

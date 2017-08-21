@@ -3,7 +3,7 @@
 ### 基本用法
 
 ```html
-<div>
+<div style="padding-bottom:10px;">
     <ms-datepicker :widget="{
         placeholder:'请选择时间'
     }"></ms-datepicker>
@@ -13,7 +13,7 @@
 ### 格式化日期
 
 ```html
-<div>
+<div style="padding-bottom:10px;">
     <ms-datepicker :widget="{
         placeholder:'请选择时间',
         format:'YYYY/MM/DD'
@@ -24,7 +24,7 @@
 ### 不可选择的日期
 
 ```html
-<div>
+<div style="padding-bottom:10px;">
     <ms-datepicker :widget="{
         placeholder:'请选择时间',
         startDate:'2017/5/26',
@@ -36,7 +36,7 @@
 ### 日期时间选择
 
 ```html
-<div>
+<div style="padding-bottom:10px;">
     <ms-datepicker :widget="{
         placeholder:'请选择抢购开始时间',
         showTime: true
