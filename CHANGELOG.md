@@ -11,6 +11,7 @@
     ``` html
     <ms-table-header :widget="{title:'序号',type:'index'}"></ms-table-header>
     ```
+- dialog 组件，增加自定义弹出框按钮文字的功能
 
 1.0.5 / 2017-07-07
 ------------------
