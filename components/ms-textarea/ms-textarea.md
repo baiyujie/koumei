@@ -3,7 +3,7 @@
 #### 基本使用
 
 ``` html
-<div :controller="doc-textarea-basic">
+<div :controller="doc-textarea-basic" style="padding-bottom:10px;">
     <ms-textarea :widget="{value:@value}"></ms-textarea>
 </div>
 ```

@@ -3,7 +3,7 @@
 ### 基本用法
 
 ```html
-<div>
+<div style="padding-bottom:10px;">
     <ms-checkbox>checkbox</ms-checkbox>
 </div>
 ```
@@ -11,7 +11,7 @@
 ### 单选框组
 
 ```html
-<div :controller="doc-checkbox-group">
+<div :controller="doc-checkbox-group" style="padding-bottom:10px;">
     <ms-checkbox-group :widget="{
         options:[
             { label: '编程', value: 'code' },

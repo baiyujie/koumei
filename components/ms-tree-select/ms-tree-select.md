@@ -3,7 +3,7 @@
 ### 基本用法
 
 ```html
-<div :controller="tree">
+<div :controller="tree" style="padding-bottom:10px;">
     <ms-tree-select :widget="{treeData: @data,multiple:true}"></ms-tree>
 </div>
 ```

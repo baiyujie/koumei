@@ -37,7 +37,7 @@ const vm = avalon.define({
 ### 多选
 
 ``` html
-<div :controller="doc-select-multiple">
+<div :controller="doc-select-multiple" style="padding-bottom:10px;">
     <ms-select :widget="{col:'attribute',mode:'multiple'}">
         <ms-select-option :widget="{value:'koumei'}">koumei</ms-select-option>
         <ms-select-option :widget="{value:'koumei-doc'}">koumei-doc</ms-select-option>
@@ -60,7 +60,7 @@ avalon.define({
 ### 带搜索框
 
 ``` html
-<div :controller="doc-select-multiple">
+<div :controller="doc-select-multiple" style="padding-bottom:10px;">
     <ms-select :widget="{col:'attribute',showSearch:true}">
         <ms-select-option :widget="{value:'koumei'}">koumei</ms-select-option>
         <ms-select-option :widget="{value:'koumei-doc'}">koumei-doc</ms-select-option>
@@ -83,7 +83,7 @@ avalon.define({
 ### 远程加载数据
 
 ``` html
-<div :controller="doc-select-remote">
+<div :controller="doc-select-remote" style="padding-bottom:10px;">
     <ms-select :widget="{mode:'multiple',showSearch:true,remote:true,remoteMethod:@fetchOptions}"></ms-select>
 </div>
 ```
@@ -112,7 +112,7 @@ avalon.define({
 |-----|-----|-----|-----|
 | value | 默认值 | string\[\] | \[\] |
 | mode | 模式 | 'combobox' \| 'multiple' \| 'tags' | '' |
-| options | 下拉选项，可以替代ms-select-option | {label:string,value:string,disabled:boolean}\[\] | \[\] |
+| options | 下拉选项，可以替代ms-select-option | {label:string,value:string,disabled:boolean} | \[\] |
 | showSearch | 是否显示搜索框 | boolean | false |
 | remote | 是否为远程搜索 | boolean | false |
 | remoteMethod | remoteMethod 当remote为true时调用，包含远程搜索要执行的请求，要求返回一个Promise&#x3C;options&#x3E; | function(query) | noop |

@@ -3,7 +3,7 @@
 ### 基本用法
 
 ```html
-<div>
+<div style="padding-bottom:10px;">
     <ms-timepicker :widget="{
         placeholder:'请选择打卡时间'
     }"></ms-timepicker>
@@ -13,7 +13,7 @@
 ### 格式化时间
 
 ```html
-<div>
+<div style="padding-bottom:10px;">
     <ms-timepicker :widget="{
         placeholder:'请选择打卡时间',
         format:'HH:mm'

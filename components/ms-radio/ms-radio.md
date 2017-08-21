@@ -3,7 +3,7 @@
 ### 基本用法
 
 ```html
-<div>
+<div style="padding-bottom:10px;">
     <ms-radio>radio</ms-radio>
 </div>
 ```
@@ -11,7 +11,7 @@
 ### 单选框组
 
 ```html
-<div :controller="doc-radio-group">
+<div :controller="doc-radio-group" style="padding-bottom:10px;">
     <ms-radio-group :widget="{
         options:[
             { label: '男', value: 'M' },

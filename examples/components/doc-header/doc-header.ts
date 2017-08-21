@@ -9,6 +9,7 @@ avalon.component(name, {
     template: require('./doc-header.html'),
     defaults: {
         menu: [],
+        navConfig:[],
         locale:'',
         selectedKeys: ['component-api'],
         onClick: avalon.noop,

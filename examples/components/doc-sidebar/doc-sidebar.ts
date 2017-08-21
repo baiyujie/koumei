@@ -8,12 +8,12 @@ export const name = 'doc-sidebar';
 
 avalon.component(name, {
     template: require('./doc-sidebar.html'),
-    navConfig: [],
-    menuStore: avalon.noop,
     defaults: {
         menu: [],
         selectedKeys: [],
         locale:'',
+        navConfig: [],
+        menuStore: avalon.noop,
         openKeys: ['component-api-guide','components-api-basic'],
         handleMenuClick(item, key, keyPath) {
             avalon.history.setHash(item.uri+'/'+this.locale);

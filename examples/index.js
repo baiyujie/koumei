@@ -29,7 +29,8 @@ var avalon = require('avalon2');
 avalon.config({
     debug: true
 });
-if (avalon.msie < 8) {
+// ie <= 8  defineProperty的方法补充
+if (avalon.msie <= 8) {
     Object.defineProperty = function (obj, property, meta) {
         obj[property] = meta.value;
     }
@@ -45,7 +46,6 @@ require('es5-shim/es5-sham');
 require('./router');
 require('../components/ms-layout');
 require('./components/doc-sidebar/doc-sidebar');
-require('./components/doc-menu/doc-menu');
 require('./components/doc-header/index');
 
 avalon.history.start({

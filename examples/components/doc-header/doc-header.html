@@ -5,10 +5,8 @@
                 <img src="assets/img/jd256.png" alt="jd-logo" class="logoimg"/>
             </a>
         </h1>
-        <!-- <xmp is="doc-menu"></xmp> -->
         <ul :class="@wrapper" class="menu">
             <li :for="item in menu" class="item">
-                <!-- <a :click="handleClick(item, item.key, [item.key])"  class="">{{item.title}}</a> -->
                 <a :click="handleClick(item, item.key, [item.key])" :class="@selectedKeys.contains(item.key) ? 'active' : ''">{{item.title}}</a>
             </li>
             <li class="item">
