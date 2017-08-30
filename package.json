@@ -1,6 +1,6 @@
 {
   "name": "koumei",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "avalonjs components package",
   "main": "dist/koumei.js",
   "files": [
@@ -10,8 +10,8 @@
     "i": "npm install --registry https://registry.npm.taobao.org",
     "build": "webpack --config webpack.test.config.js",
     "dev": "webpack-dev-server --config webpack.test.config.js",
-    "examples": "webpack-dev-server --config webpack.examples.config.js",
-    "examples:build": "webpack --config webpack.examples.config.js --output-path=output --env.production",
+    "deploy": "webpack-dev-server --config webpack.examples.config.js",
+    "deploy:build": "webpack --config webpack.examples.config.js --output-path=output --env.production",
     "dist": "http-server dist -s -p 9000",
     "test": "npm-run-all -p -r  server nightwatch",
     "nightwatch": "nightwatch ./tests/nightwatch.js",

@@ -37,11 +37,12 @@ avalon.component('ms-dialog', {
                                 label: vm.cancelText || '取消',
                                 className: 'btn-default',
                                 callback() {
-                                    vm.onCancel();
+                                    // vm.onCancel();
                                 }
                             }
                         }
                     }).on('hidden.bs.modal', (e) => {
+                        vm.onCancel();
                         setTimeout(() => {
                             if ($('.modal.in').length) {
                                 $('body').addClass('modal-open');

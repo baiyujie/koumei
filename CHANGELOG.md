@@ -1,4 +1,11 @@
 
+1.0.7 / 2017-08-25
+------------------
+
+- dialog 组件，修复通过叉叉关闭后无法再次打开的问题
+- tree-select 组件，增加 direction （“下拉”方向）属性，同时 select/datepicker/timepicker 也增加了此属性
+- tree-select 组件，onChange 回调传入更多信息
+
 1.0.6 / 2017-08-17
 ------------------
 

@@ -44,7 +44,8 @@ controlComponent.extend({
                 this.panelVisible = false;
             }
         },
-
+        
+        direction: 'down',
         panelVmId: '',
         panelVisible: false,
         panelClass: 'koumei-timepicker-panel-container',

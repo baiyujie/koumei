@@ -1,0 +1,46 @@
+<div class="koumei-sidenav" :css="navStyle">
+  <ul>
+    <li class="nav-item" :for="item in @data">
+      <a :if="!@item.path && !@item.href" :click="expandMenu"  :active="@active">{{item.name}}</a>
+      <a :if="@item.href" href="{{item.href}}" target="_blank"  :active="@active">{{item.name}}</a>
+      <!-- <router-link
+        v-if="item.path"
+        active-class="active"
+        :to="base + item.path"
+        exact
+        v-text="item.title || item.name">
+      </router-link> -->
+      <ul class="pure-menu-list sub-nav" v-if="item.children">
+        <li class="nav-item" v-for="navItem in item.children">
+          <a :click="handleClick(navItem, navItem.key, [navItem.key,item.key])" :active="@active">
+              {{navItem.title || navItem.name}}
+          </a>
+          <!-- <router-link
+            class=""
+            active-class="active"
+            :to="base + navItem.path"
+            exact
+            v-text="navItem.title || navItem.name">
+          </router-link> -->
+        </li>
+      </ul>
+      <!-- <template v-if="item.groups"> -->
+        <div :if="item.groups" class="nav-group" v-for="group in item.groups">
+          <div class="nav-group__title" @click="expandMenu">{{group.groupName}}</div>
+          <ul class="pure-menu-list">
+            <li
+              class="nav-item"
+              v-for="navItem in group.list"
+              v-if="!navItem.disabled">
+              <router-link
+                active-class="active"
+                :to="base + navItem.path"
+                exact
+                v-text="navItem.title"></router-link>
+            </li>
+          </ul>
+        </div>
+      <!-- </template> -->
+    </li>
+  </ul>
+</div>

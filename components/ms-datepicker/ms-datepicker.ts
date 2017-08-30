@@ -54,6 +54,7 @@ controlComponent.extend({
             }
         },
 
+        direction: 'up',
         panelVmId: '',
         panelVisible: false,
         panelClass: 'koumei-datepicker-panel-container',

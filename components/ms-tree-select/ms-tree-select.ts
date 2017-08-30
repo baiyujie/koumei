@@ -44,9 +44,11 @@ controlComponent.extend({
                 this.selection.removeAt(this.selection.length - 1);
                 const selection = this.selection.toJSON();
                 const value = selection.map(s => s.key);
+                const nodes = [];
+                getTreeNodesByKeys({children:this.treeData}, value, nodes);
                 avalon.vmodels[this.panelVmId].checkedKeys = value;
                 this.handleChange({
-                    target: { value: this.multiple ? value : value[0] || '' },
+                    target: { value: this.multiple ? value.toJSON() : value.toJSON()[0] || '', selection: nodes },
                     type: 'tree-select'
                 });
             }
@@ -55,15 +57,18 @@ controlComponent.extend({
             this.selection.removeAll(o => o.key === option.key);
             const selection = this.selection.toJSON();
             const value = selection.map(s => s.key);
+            const nodes = [];
+            getTreeNodesByKeys({children:this.treeData}, value, nodes);
             avalon.vmodels[this.panelVmId].checkedKeys = value;
             this.focusSearch();
             this.handleChange({
-                target: { value: this.multiple ? value : value[0] || '' },
+                target: { value: this.multiple ? value.toJSON() : value.toJSON()[0] || '', selection: nodes },
                 type: 'tree-select'
             });
         },
 
         // 下拉框下拉列表部分
+        direction: 'down',
         panelWidth: 0,
         panelVmId: '',
         panelVisible: false,
@@ -82,6 +87,7 @@ controlComponent.extend({
             }
             avalon.vmodels[this.panelVmId].checkedKeys = value;
             this.selection = nodes.map(n => ({ key: n.key, title: n.title }));
+            return nodes;
         },
         onInit(event) {
             const self = this;
@@ -89,9 +95,9 @@ controlComponent.extend({
             emitToFormItem(this);
             this.$watch('value', v => {
                 const value = v.toJSON();
-                this.mapValueToSelection(value);
+                const nodes = this.mapValueToSelection(value);
                 this.handleChange({
-                    target: { value: this.multiple ? value : value[0] || '' },
+                    target: { value: this.multiple ? value : value[0] || '', selection: nodes },
                     denyValidate: true,
                     type: 'tree-select'
                 });
